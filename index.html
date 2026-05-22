@@ -5,23 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
   <meta name="theme-color" content="#ffffff" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <meta name="description" content="Ivan Ignatiev — разработчик. Портфолио проектов и контакты." />
+  <script>
+    (function () {
+      var build = "20260522a";
+      var key = "portfolio-build";
+      var saved = localStorage.getItem(key);
+      if (saved && saved !== build) {
+        localStorage.setItem(key, build);
+        var url = new URL(window.location.href);
+        if (url.searchParams.get("fresh") !== build) {
+          url.searchParams.set("fresh", build);
+          window.location.replace(url.toString());
+          return;
+        }
+      }
+      if (!saved) localStorage.setItem(key, build);
+    })();
+  </script>
   <title>Ivan Ignatiev — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=39" />
+  <link rel="stylesheet" href="styles.css?v=20260522a0260522a" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css"
   />
-  <link rel="preload" as="image" href="images/background/tony-hero-bg.jpg?v=1" />
+  <link rel="preload" as="image" href="images/background/tony-hero-bg.jpg?v=20260522a" />
 </head>
 <body>
   <div class="site-bg" aria-hidden="true">
     <img
       class="site-bg__image"
-      src="images/background/tony-hero-bg.jpg?v=1"
+      src="images/background/tony-hero-bg.jpg?v=20260522a"
       alt=""
       width="1308"
       height="736"
@@ -66,7 +86,7 @@
           <ul class="about-facts" aria-label="Краткая информация">
             <li class="about-facts__item">
               <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
-                <img src="images/flags/ru.svg?v=2" alt="" width="40" height="40" />
+                <img src="images/flags/ru.svg?v=20260522a" alt="" width="40" height="40" />
               </span>
               <span class="about-facts__text">
                 <strong>Русский</strong>
@@ -75,7 +95,7 @@
             </li>
             <li class="about-facts__item">
               <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
-                <img src="images/flags/us.svg?v=2" alt="" width="40" height="40" />
+                <img src="images/flags/us.svg?v=20260522a" alt="" width="40" height="40" />
               </span>
               <span class="about-facts__text">
                 <strong>Английский</strong>
@@ -184,89 +204,89 @@
       <ul class="skills-grid">
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/javascript.svg?v=2" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/typescript.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/javascript.svg?v=20260522a" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/typescript.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">JavaScript · TypeScript</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/react.svg?v=2" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/nextdotjs.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/react.svg?v=20260522a" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/nextdotjs.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">React · Next.js</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/nodedotjs.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/nodedotjs.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">Node.js</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/mui.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/mui.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">MUI</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/prisma.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/prisma.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">Prisma</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/sqlite.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/sqlite.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">SQLite</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/authjs.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/authjs.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">Auth.js</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/swagger.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/swagger.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">REST API</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/git.svg?v=2" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/github.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/git.svg?v=20260522a" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/github.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">Git · GitHub</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/docker.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/docker.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">Docker</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/githubactions.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/githubactions.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">GitHub Actions</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/gnubash.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/gnubash.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">SSH</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/cursor.svg?v=2" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/openai.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/cursor.svg?v=20260522a" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/openai.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">Cursor · ChatGPT</span>
         </li>
         <li class="skill-card">
           <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/openapi.svg?v=2" alt="" width="28" height="28" />
+            <img class="skill-card__icon" src="images/skills/openapi.svg?v=20260522a" alt="" width="28" height="28" />
           </span>
           <span class="skill-card__label">API‑интеграции</span>
         </li>
@@ -306,7 +326,7 @@
             <figcaption>3. Выбор мест</figcaption>
           </figure>
           <figure class="project-gallery__item">
-            <img src="images/show-stolicy/4.jpg?v=2" alt="Блок «Почему Шоу Столицы» с персональным ассистентом" loading="lazy" width="1290" height="2527" />
+            <img src="images/show-stolicy/4.jpg?v=20260522a" alt="Блок «Почему Шоу Столицы» с персональным ассистентом" loading="lazy" width="1290" height="2527" />
             <figcaption>4. Почему Шоу Столицы</figcaption>
           </figure>
         </div>
@@ -446,6 +466,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js"></script>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=20260522a"></script>
 </body>
 </html>
