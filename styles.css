@@ -11,7 +11,7 @@
   --accent-glow: #dbeafe;
   --serif: "Instrument Serif", Georgia, serif;
   --sans: "DM Sans", system-ui, sans-serif;
-  --page-max: 68rem;
+  --page-max: 44rem;
   --page-pad: clamp(1rem, 4vw, 2rem);
   --header-h: 3.75rem;
 }
@@ -57,7 +57,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: 50% 42%;
 }
 
 body.menu-open {
@@ -70,13 +70,13 @@ img {
 }
 
 a {
-  color: var(--accent);
+  color: #93c5fd;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 a:hover {
-  color: var(--accent-dim);
+  color: #bfdbfe;
 }
 
 /* Header */
@@ -90,9 +90,9 @@ a:hover {
   gap: 1rem;
   min-height: var(--header-h);
   padding: 0.75rem var(--page-pad);
-  background: rgba(15, 12, 8, 0.35);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 8, 6, 0.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: none;
 }
 
@@ -162,52 +162,19 @@ main {
   width: 100%;
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: 0 var(--page-pad) 4rem;
+  padding: 1.25rem var(--page-pad) 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 /* Hero */
 .hero {
-  padding: clamp(2.5rem, 8vw, 5rem) 0 clamp(2.5rem, 6vw, 4rem);
-}
-
-.hero__layout {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
+  padding: 0;
 }
 
 .hero__content {
   min-width: 0;
-}
-
-.hero__photo {
-  flex-shrink: 0;
-  display: block;
-  width: min(85vw, 17.5rem);
-  min-height: 14rem;
-  margin: 0;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
-  background: var(--bg-soft) url("images/ivan/photo-main-mobile.jpg") center 15% / cover no-repeat;
-}
-
-.hero__photo picture,
-.hero__photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 14rem;
-  object-fit: cover;
-  object-position: center 15%;
-}
-
-@media (min-width: 768px) {
-  .hero__photo {
-    background-image: url("images/ivan/photo-main.jpg");
-  }
 }
 
 .hero-label {
@@ -218,9 +185,9 @@ main {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-glow);
+  color: #bfdbfe;
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(147, 197, 253, 0.35);
   border-radius: 999px;
 }
 
@@ -238,7 +205,7 @@ main {
 
 .hero-title em {
   font-style: italic;
-  color: var(--accent);
+  color: #93c5fd;
 }
 
 .hero-desc {
@@ -266,11 +233,10 @@ main {
 
 .hero-stats li {
   padding: 0.85rem;
-  background: rgba(15, 12, 8, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   box-shadow: none;
-  backdrop-filter: blur(4px);
 }
 
 .hero-stats strong,
@@ -316,28 +282,36 @@ main {
 }
 
 .btn-ghost {
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  color: #fff;
+  background: rgba(15, 12, 8, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .btn-ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-soft);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+  background: rgba(15, 12, 8, 0.65);
 }
 
 /* Sections */
 .section {
-  padding: clamp(2.5rem, 6vw, 3.5rem) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: clamp(1.35rem, 4vw, 2rem);
+  border: none;
+}
+
+.section--panel {
+  background: rgba(10, 8, 6, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 }
 
 .section--soft {
-  margin-left: calc(-1 * var(--page-pad));
-  margin-right: calc(-1 * var(--page-pad));
-  padding-left: var(--page-pad);
-  padding-right: var(--page-pad);
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: clamp(1.35rem, 4vw, 2rem);
+  padding-right: clamp(1.35rem, 4vw, 2rem);
   background: transparent;
   border-top-color: transparent;
 }
@@ -365,7 +339,7 @@ main {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #93c5fd;
 }
 
 .about__layout {
@@ -381,9 +355,9 @@ main {
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
-  background: var(--bg-soft) url("images/ivan/photo-alt-mobile.jpg") center top / cover no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.04) url("images/ivan/photo-alt-mobile.jpg") center top / cover no-repeat;
 }
 
 .about__photo picture,
@@ -435,11 +409,11 @@ main {
   padding: 0.5rem 1rem;
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--accent-dim);
-  background: var(--surface);
-  border: 1px solid var(--accent-glow);
+  color: #fff;
+  background: rgba(15, 12, 8, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  box-shadow: none;
 }
 
 /* Resume summary */
@@ -450,12 +424,11 @@ main {
 
 .resume-card,
 .experience-card {
-  padding: clamp(1.1rem, 4vw, 1.5rem);
-  background: rgba(15, 12, 8, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
   box-shadow: none;
-  backdrop-filter: blur(4px);
 }
 
 .resume-card span {
@@ -522,12 +495,11 @@ main {
 }
 
 .project-card {
-  padding: clamp(1.1rem, 4vw, 1.5rem) clamp(1.1rem, 4vw, 1.75rem);
-  background: rgba(15, 12, 8, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 1rem 1.15rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   box-shadow: none;
-  backdrop-filter: blur(4px);
   transition: border-color 0.2s, transform 0.2s;
 }
 
@@ -544,7 +516,7 @@ main {
   display: none;
   margin: 0 0 0.75rem;
   font-size: 0.8rem;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .project-gallery {
@@ -557,10 +529,10 @@ main {
 .project-gallery__item {
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  background: var(--bg-soft);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
 }
 
 .project-gallery__item img {
@@ -569,16 +541,16 @@ main {
   min-width: 100%;
   height: auto;
   vertical-align: middle;
-  background: var(--bg-soft);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .project-gallery__item figcaption {
   padding: 0.65rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
-  background: var(--surface);
+  color: rgba(255, 255, 255, 0.72);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .project-tag {
@@ -589,8 +561,8 @@ main {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-soft);
+  color: #bfdbfe;
+  background: rgba(37, 99, 235, 0.18);
   border-radius: 4px;
 }
 
@@ -637,12 +609,11 @@ main {
   grid-template-columns: minmax(5.5rem, auto) 1fr;
   align-items: center;
   gap: 0.5rem 1rem;
-  padding: 1rem 1.15rem;
-  background: rgba(15, 12, 8, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   box-shadow: none;
-  backdrop-filter: blur(4px);
 }
 
 .contact-list span {
@@ -658,12 +629,14 @@ main {
 
 /* Footer */
 .footer {
+  position: relative;
+  z-index: 1;
   padding: 2rem var(--page-pad);
   text-align: center;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.72);
   background: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: none;
 }
 
 .footer p {
@@ -687,25 +660,6 @@ main {
 }
 
 /* Desktop */
-@media (min-width: 768px) {
-  .hero__layout {
-    display: grid;
-    grid-template-columns: 1fr minmax(14rem, 18rem);
-    gap: 2.5rem 3rem;
-    align-items: center;
-  }
-
-  .hero__photo {
-    order: 2;
-    width: 100%;
-    justify-self: end;
-  }
-
-  .hero__content {
-    order: 1;
-  }
-}
-
 @media (min-width: 900px) {
   .hero-desc {
     max-width: 48ch;

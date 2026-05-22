@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=16" />
   <link rel="preload" as="image" href="images/background/ironman-bg.jpg" />
 </head>
 <body>
@@ -34,45 +34,30 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero__layout">
-        <figure class="hero__photo">
-          <picture>
-            <source media="(max-width: 767px)" srcset="images/ivan/photo-main-mobile.jpg" />
-            <img
-              src="images/ivan/photo-main.jpg"
-              alt="Иван Игнатьев — веб‑разработчик"
-              width="480"
-              height="640"
-              decoding="sync"
-              fetchpriority="high"
-            />
-          </picture>
-        </figure>
-        <div class="hero__content">
-          <p class="hero-label">Full-stack разработчик (AI-assisted)</p>
-          <h1 class="hero-title">
-            Создаю <em>веб‑приложения</em><br />
-            и автоматизацию
-          </h1>
-          <p class="hero-desc">
-            Next.js, React, TypeScript, Prisma, Docker и AI‑инструменты.
-            Помогаю превращать идеи в работающие digital‑продукты.
-          </p>
-          <ul class="hero-stats" aria-label="Ключевые факты">
-            <li><strong>2+ года</strong><span>коммерческого опыта</span></li>
-            <li><strong>Продакшен</strong><span>ticketing‑платформа</span></li>
-            <li><strong>11 лет</strong><span>продажи и управление</span></li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
-            <a class="btn btn-ghost" href="#summary">Резюме</a>
-          </div>
+    <section class="hero section section--panel">
+      <div class="hero__content">
+        <p class="hero-label">Full-stack разработчик (AI-assisted)</p>
+        <h1 class="hero-title">
+          Создаю <em>веб‑приложения</em><br />
+          и автоматизацию
+        </h1>
+        <p class="hero-desc">
+          Next.js, React, TypeScript, Prisma, Docker и AI‑инструменты.
+          Помогаю превращать идеи в работающие digital‑продукты.
+        </p>
+        <ul class="hero-stats" aria-label="Ключевые факты">
+          <li><strong>2+ года</strong><span>коммерческого опыта</span></li>
+          <li><strong>Продакшен</strong><span>ticketing‑платформа</span></li>
+          <li><strong>11 лет</strong><span>продажи и управление</span></li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
+          <a class="btn btn-ghost" href="#summary">Резюме</a>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section about section--soft">
+    <section id="about" class="section about section--panel">
       <h2 class="section-title">Обо мне</h2>
       <div class="about__layout">
         <figure class="about__photo">
@@ -107,7 +92,7 @@
       </div>
     </section>
 
-    <section id="summary" class="section resume-summary">
+    <section id="summary" class="section resume-summary section--panel">
       <div class="section-heading">
         <p class="section-kicker">Резюме</p>
         <h2 class="section-title">Что важно знать</h2>
@@ -136,7 +121,7 @@
       </div>
     </section>
 
-    <section id="skills" class="section skills section--soft">
+    <section id="skills" class="section skills section--panel">
       <h2 class="section-title">Навыки</h2>
       <ul class="skills-list">
         <li>JavaScript / TypeScript</li>
@@ -156,7 +141,7 @@
       </ul>
     </section>
 
-    <section id="experience" class="section experience">
+    <section id="experience" class="section experience section--panel">
       <div class="section-heading">
         <p class="section-kicker">Опыт</p>
         <h2 class="section-title">Шоу Столицы</h2>
@@ -177,7 +162,7 @@
       </div>
     </section>
 
-    <section id="projects" class="section projects">
+    <section id="projects" class="section projects section--panel">
       <h2 class="section-title">Проекты</h2>
       <div class="projects-grid">
         <article class="project-card">
@@ -265,7 +250,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact section--panel">
       <h2 class="section-title">Контакты</h2>
       <p class="contact-lead">Напишите — обсудим задачу или проект.</p>
       <ul class="contact-list">
