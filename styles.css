@@ -19,6 +19,9 @@
   --panel-shadow: 0 20px 56px rgba(0, 0, 0, 0.5);
   --glass: rgba(10, 10, 14, 0.86);
   --glass-hover: rgba(22, 22, 28, 0.94);
+  --tile-bg: rgba(255, 255, 255, 0.05);
+  --tile-border: rgba(255, 255, 255, 0.11);
+  --tile-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 *,
@@ -662,19 +665,21 @@ main > section {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  min-height: auto;
-  padding: 0.5rem 0.25rem;
+  min-height: 6.5rem;
+  padding: 1rem 0.65rem;
   text-align: center;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+  background: var(--tile-bg);
+  border: 1px solid var(--tile-border);
+  border-radius: 14px;
+  box-shadow: var(--tile-shadow);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .skill-card:hover {
-  transform: none;
-  border-color: transparent;
-  box-shadow: none;
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
 }
 
 .skill-card__icons {
@@ -707,8 +712,8 @@ main > section {
   }
 
   .skill-card {
-    min-height: auto;
-    padding: 0.5rem 0.25rem;
+    min-height: 7rem;
+    padding: 1.1rem 0.75rem;
   }
 
   .skill-card__icon {
@@ -724,11 +729,19 @@ main > section {
 }
 
 .resume-card {
-  padding: 0;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+  padding: 1.15rem 1.2rem;
+  background: var(--tile-bg);
+  border: 1px solid var(--tile-border);
+  border-radius: 14px;
+  box-shadow: var(--tile-shadow);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.resume-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
 }
 
 .experience-card {
