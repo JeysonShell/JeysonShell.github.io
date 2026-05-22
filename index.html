@@ -4,18 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#2a2218" />
+  <meta name="theme-color" content="#f5f3ef" />
   <meta name="description" content="Ivan Ignatiev — разработчик. Портфолио проектов и контакты." />
   <title>Ivan Ignatiev — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=16" />
-  <link rel="preload" as="image" href="images/background/ironman-bg.jpg" />
+  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="preload" as="image" href="images/background/ironman-bg-mobile.jpg" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="images/background/ironman-bg.jpg" media="(min-width: 768px)" />
 </head>
 <body>
   <div class="site-bg" aria-hidden="true">
-    <img src="images/background/ironman-bg.jpg" alt="" width="1600" height="2844" decoding="async" fetchpriority="high" />
+    <picture>
+      <source media="(max-width: 767px)" srcset="images/background/ironman-bg-mobile.jpg" />
+      <img
+        src="images/background/ironman-bg.jpg"
+        alt=""
+        width="1080"
+        height="1928"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </picture>
   </div>
   <header class="header">
     <a class="logo" href="#">Ivan Ignatiev</a>
