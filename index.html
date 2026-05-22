@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ivan Ignatiev — разработчик. Портфолио проектов и контакты." />
+  <title>Ivan Ignatiev — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#">Ivan Ignatiev</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">Обо мне</a>
+      <a href="#skills">Навыки</a>
+      <a href="#projects">Проекты</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="hero-label">Разработчик</p>
+      <h1 class="hero-title">
+        Создаю <em>веб‑приложения</em><br />
+        и автоматизацию
+      </h1>
+      <p class="hero-desc">
+        Full‑stack разработка, боты, сайты для бизнеса.
+        От идеи до деплоя.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
+        <a class="btn btn-ghost" href="https://github.com/JeysonShell" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <h2 class="section-title">Обо мне</h2>
+      <div class="about-grid">
+        <p>
+          Привет! Меня зовут <strong>Ivan Ignatiev</strong>. Я разрабатываю
+          веб‑сервисы, Telegram‑ботов и внутренние инструменты для бизнеса.
+        </p>
+        <p>
+          В работе ценю понятную архитектуру, быстрый деплой и код, который
+          легко поддерживать. Открыт к новым проектам и сотрудничеству.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills">
+      <h2 class="section-title">Навыки</h2>
+      <ul class="skills-list">
+        <li>JavaScript / TypeScript</li>
+        <li>React / Next.js</li>
+        <li>Node.js</li>
+        <li>Flutter / Dart</li>
+        <li>Python</li>
+        <li>Git & GitHub</li>
+        <li>Docker</li>
+        <li>Hardhat / Web3</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section projects">
+      <h2 class="section-title">Проекты</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <span class="project-tag">Public</span>
+          <h3>fixrapido.ru</h3>
+          <p>Веб‑приложение для приёма и обработки заявок в ремонтную службу.</p>
+          <a href="https://github.com/JeysonShell/fixrapido.ru" target="_blank" rel="noopener noreferrer">Репозиторий →</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">Public</span>
+          <h3>Orchestrator</h3>
+          <p>Оркестрация задач и автоматизация рабочих процессов.</p>
+          <a href="https://github.com/JeysonShell/Orchestrator" target="_blank" rel="noopener noreferrer">Репозиторий →</a>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">Web</span>
+          <h3>EventApp</h3>
+          <p>Приложение для организации и управления событиями.</p>
+          <span class="project-private">Private repo</span>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">Web</span>
+          <h3>shows.msk.ru</h3>
+          <p>Сайт для шоу и мероприятий в Москве.</p>
+          <span class="project-private">Private repo</span>
+        </article>
+        <article class="project-card">
+          <span class="project-tag">E‑commerce</span>
+          <h3>mirvana.msk.ru</h3>
+          <p>Сайт для продажи ванн и сопутствующих товаров.</p>
+          <span class="project-private">Private repo</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2 class="section-title">Контакты</h2>
+      <p class="contact-lead">Напишите — обсудим задачу или проект.</p>
+      <ul class="contact-list">
+        <li>
+          <span>GitHub</span>
+          <a href="https://github.com/JeysonShell" target="_blank" rel="noopener noreferrer">@JeysonShell</a>
+        </li>
+        <li>
+          <span>Email</span>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Ivan Ignatiev</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
