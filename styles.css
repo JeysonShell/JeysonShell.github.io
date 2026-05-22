@@ -55,22 +55,34 @@ body {
   background: #f5f3ef;
 }
 
-.site-bg picture {
-  display: block;
+.site-bg__mobile,
+.site-bg__desktop {
   width: 100%;
   height: 100%;
 }
 
-.site-bg img {
+.site-bg__mobile {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 58% 36%;
+}
+
+.site-bg__desktop {
+  display: none;
+}
+
+.site-bg__mobile img,
+.site-bg__art {
+  display: block;
   image-rendering: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
+}
+
+.site-bg__mobile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
 }
 
 body.menu-open {
@@ -685,11 +697,26 @@ main {
   }
 }
 
-/* Desktop — show full background illustration */
+/* Desktop — show both background illustrations side by side */
 @media (min-width: 768px) {
-  .site-bg img {
+  .site-bg__mobile {
+    display: none;
+  }
+
+  .site-bg__desktop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(0.25rem, 1vw, 1rem);
+    padding-right: clamp(0.5rem, 2vw, 1.5rem);
+  }
+
+  .site-bg__art {
+    width: auto;
+    height: 100%;
+    max-height: 100vh;
     object-fit: contain;
-    object-position: right center;
+    flex: 0 0 auto;
   }
 }
 
@@ -739,7 +766,7 @@ main {
 
 /* Mobile */
 @media (max-width: 767px) {
-  .site-bg img {
+  .site-bg__mobile img {
     object-fit: cover;
     object-position: 50% 18%;
   }
