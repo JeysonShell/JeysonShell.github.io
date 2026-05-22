@@ -83,5 +83,34 @@ nav?.querySelectorAll("a").forEach((link) => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") setMenuOpen(false);
+  if (e.key === "Escape") {
+    setMenuOpen(false);
+    setContactFabOpen(false);
+  }
+});
+
+const contactFab = document.getElementById("contact-fab");
+const contactFabToggle = document.getElementById("contact-fab-toggle");
+const contactFabMenu = document.getElementById("contact-fab-menu");
+
+function setContactFabOpen(open) {
+  contactFab?.classList.toggle("is-open", open);
+  contactFabToggle?.setAttribute("aria-expanded", String(open));
+  contactFabToggle?.setAttribute("aria-label", open ? "Закрыть контакты" : "Открыть контакты");
+  if (contactFabMenu) {
+    contactFabMenu.hidden = !open;
+  }
+}
+
+contactFabToggle?.addEventListener("click", () => {
+  setContactFabOpen(!contactFab?.classList.contains("is-open"));
+});
+
+document.addEventListener("click", (e) => {
+  if (
+    contactFab?.classList.contains("is-open") &&
+    !contactFab.contains(e.target)
+  ) {
+    setContactFabOpen(false);
+  }
 });
