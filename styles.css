@@ -164,22 +164,31 @@ main {
 
 .hero__photo {
   flex-shrink: 0;
+  display: block;
   width: min(85vw, 17.5rem);
+  min-height: 14rem;
   margin: 0;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
-  background: var(--surface);
+  background: var(--bg-soft) url("images/ivan/photo-main-mobile.jpg") center 15% / cover no-repeat;
 }
 
+.hero__photo picture,
 .hero__photo img {
   display: block;
   width: 100%;
   height: auto;
-  vertical-align: middle;
+  min-height: 14rem;
   object-fit: cover;
   object-position: center 15%;
+}
+
+@media (min-width: 768px) {
+  .hero__photo {
+    background-image: url("images/ivan/photo-main.jpg");
+  }
 }
 
 .hero-label {
@@ -292,22 +301,31 @@ main {
 }
 
 .about__photo {
+  display: block;
+  width: min(85vw, 14rem);
+  min-height: 12rem;
   margin: 0 auto;
-  max-width: 14rem;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
-  background: var(--surface);
+  background: var(--bg-soft) url("images/ivan/photo-alt-mobile.jpg") center top / cover no-repeat;
 }
 
+.about__photo picture,
 .about__photo img {
   display: block;
   width: 100%;
   height: auto;
-  vertical-align: middle;
+  min-height: 12rem;
   object-fit: cover;
   object-position: center top;
+}
+
+@media (min-width: 768px) {
+  .about__photo {
+    background-image: url("images/ivan/photo-alt.jpg");
+  }
 }
 
 .about-grid {
@@ -625,7 +643,13 @@ main {
   }
 
   .hero__photo {
-    width: min(85vw, 17.5rem);
+    width: min(88vw, 18rem);
+    min-height: 16rem;
+  }
+
+  .hero__photo picture,
+  .hero__photo img {
+    min-height: 16rem;
   }
 
   .about__layout {
@@ -636,8 +660,14 @@ main {
   }
 
   .about__photo {
-    width: min(85vw, 14rem);
+    width: min(88vw, 14rem);
+    min-height: 14rem;
     max-width: none;
+  }
+
+  .about__photo picture,
+  .about__photo img {
+    min-height: 14rem;
   }
 
   .hero-actions .btn {

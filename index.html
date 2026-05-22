@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=9" />
-  <link rel="preload" as="image" href="/images/ivan/photo-main.jpg" />
+  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="preload" as="image" href="images/ivan/photo-main-mobile.jpg" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="images/ivan/photo-main.jpg" media="(min-width: 768px)" />
 </head>
 <body>
   <header class="header">
@@ -32,14 +33,17 @@
     <section class="hero">
       <div class="hero__layout">
         <figure class="hero__photo">
-          <img
-            src="/images/ivan/photo-main.jpg"
-            alt="Иван Игнатьев — веб‑разработчик"
-            width="900"
-            height="1200"
-            decoding="async"
-            fetchpriority="high"
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcset="images/ivan/photo-main-mobile.jpg" />
+            <img
+              src="images/ivan/photo-main.jpg"
+              alt="Иван Игнатьев — веб‑разработчик"
+              width="480"
+              height="640"
+              decoding="sync"
+              fetchpriority="high"
+            />
+          </picture>
         </figure>
         <div class="hero__content">
           <p class="hero-label">Разработчик</p>
@@ -63,13 +67,16 @@
       <h2 class="section-title">Обо мне</h2>
       <div class="about__layout">
         <figure class="about__photo">
-          <img
-            src="/images/ivan/photo-alt.jpg"
-            alt="Иван Игнатьев"
-            decoding="async"
-            width="900"
-            height="1200"
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcset="images/ivan/photo-alt-mobile.jpg" />
+            <img
+              src="images/ivan/photo-alt.jpg"
+              alt="Иван Игнатьев"
+              width="480"
+              height="640"
+              decoding="sync"
+            />
+          </picture>
         </figure>
         <div class="about-grid">
         <p>
@@ -121,27 +128,27 @@
           <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
           <div class="project-gallery" aria-label="Скриншоты проекта">
             <figure class="project-gallery__item">
-              <img src="/images/refs-show-stolicy/1.png" alt="Главный экран — Зарабатывайте на искусстве" loading="lazy" width="1400" height="788" />
+              <img src="images/refs-show-stolicy/1.png" alt="Главный экран — Зарабатывайте на искусстве" loading="lazy" width="1400" height="788" />
               <figcaption>1. Главный экран</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/refs-show-stolicy/2.png" alt="Примеры — лёгкий старт в шоу-бизнесе" loading="lazy" width="1400" height="788" />
+              <img src="images/refs-show-stolicy/2.png" alt="Примеры — лёгкий старт в шоу-бизнесе" loading="lazy" width="1400" height="788" />
               <figcaption>2. Примеры работы</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/refs-show-stolicy/3.png" alt="Мобильные сценарии — выбор, заказ, выплаты" loading="lazy" width="1400" height="788" />
+              <img src="images/refs-show-stolicy/3.png" alt="Мобильные сценарии — выбор, заказ, выплаты" loading="lazy" width="1400" height="788" />
               <figcaption>3. Сценарии для партнёров</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/refs-show-stolicy/4.png" alt="Преимущества партнёрской программы" loading="lazy" width="1400" height="788" />
+              <img src="images/refs-show-stolicy/4.png" alt="Преимущества партнёрской программы" loading="lazy" width="1400" height="788" />
               <figcaption>4. Преимущества</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/refs-show-stolicy/5.png" alt="Частые вопросы" loading="lazy" width="1400" height="788" />
+              <img src="images/refs-show-stolicy/5.png" alt="Частые вопросы" loading="lazy" width="1400" height="788" />
               <figcaption>5. FAQ</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/refs-show-stolicy/6.png" alt="Форма регистрации партнёра" loading="lazy" width="1400" height="788" />
+              <img src="images/refs-show-stolicy/6.png" alt="Форма регистрации партнёра" loading="lazy" width="1400" height="788" />
               <figcaption>6. Регистрация</figcaption>
             </figure>
           </div>
@@ -154,31 +161,31 @@
           <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
           <div class="project-gallery" aria-label="Скриншоты shows.msk.ru">
             <figure class="project-gallery__item">
-              <img src="/images/shows-msk/1.png" alt="Главная — спектакль Кыся с таймером" loading="lazy" width="1400" height="788" />
+              <img src="images/shows-msk/1.png" alt="Главная — спектакль Кыся с таймером" loading="lazy" width="1400" height="788" />
               <figcaption>1. Главная страница</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/shows-msk/2.png" alt="Площадка и схема зала" loading="lazy" width="1400" height="788" />
+              <img src="images/shows-msk/2.png" alt="Площадка и схема зала" loading="lazy" width="1400" height="788" />
               <figcaption>2. Площадка и выбор мест</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/shows-msk/3.png" alt="Карта театра и галерея" loading="lazy" width="1400" height="788" />
+              <img src="images/shows-msk/3.png" alt="Карта театра и галерея" loading="lazy" width="1400" height="788" />
               <figcaption>3. Карта и галерея</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/shows-msk/4.png" alt="Об артисте — Дмитрий Нагиев" loading="lazy" width="1400" height="788" />
+              <img src="images/shows-msk/4.png" alt="Об артисте — Дмитрий Нагиев" loading="lazy" width="1400" height="788" />
               <figcaption>4. Дмитрий Нагиев</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/shows-msk/5.png" alt="Об артисте — Игорь Лифанов" loading="lazy" width="1400" height="788" />
+              <img src="images/shows-msk/5.png" alt="Об артисте — Игорь Лифанов" loading="lazy" width="1400" height="788" />
               <figcaption>5. Игорь Лифанов</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/shows-msk/6.png" alt="Программа и вопросы-ответы" loading="lazy" width="1400" height="788" />
+              <img src="images/shows-msk/6.png" alt="Программа и вопросы-ответы" loading="lazy" width="1400" height="788" />
               <figcaption>6. Программа и FAQ</figcaption>
             </figure>
             <figure class="project-gallery__item">
-              <img src="/images/shows-msk/7.png" alt="Рекомендуемые события" loading="lazy" width="1400" height="788" />
+              <img src="images/shows-msk/7.png" alt="Рекомендуемые события" loading="lazy" width="1400" height="788" />
               <figcaption>7. Рекомендуемые события</figcaption>
             </figure>
           </div>
