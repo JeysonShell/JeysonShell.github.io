@@ -715,8 +715,9 @@ main {
     width: auto;
     height: 100%;
     max-height: 100vh;
+    max-width: min(32vw, 26rem);
     object-fit: contain;
-    flex: 0 0 auto;
+    flex: 0 1 auto;
   }
 }
 
