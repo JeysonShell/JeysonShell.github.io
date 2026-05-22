@@ -639,6 +639,16 @@ main {
   word-break: break-word;
 }
 
+.project-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: var(--accent);
+}
+
 .project-card p {
   margin: 0 0 1rem;
   font-size: 0.95rem;
