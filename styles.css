@@ -608,17 +608,18 @@ main > section {
   height: 3.5rem;
   padding: 0;
   border-radius: 50%;
-  color: var(--text);
-  background: var(--glass);
-  border: 1px solid var(--panel-border);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  color: #0a0a0f;
+  background: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 2px 12px rgba(255, 255, 255, 0.15);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .contact-fab__toggle:hover {
   transform: scale(1.04);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 4px 18px rgba(255, 255, 255, 0.22);
 }
 
 .contact-fab__toggle:focus-visible {
@@ -644,9 +645,9 @@ main > section {
 }
 
 .contact-fab.is-open .contact-fab__toggle {
-  background: #f4f4f5;
+  background: #ffffff;
   color: #050508;
-  border-color: transparent;
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 /* Skills */
