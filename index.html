@@ -10,11 +10,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <header class="header">
     <a class="logo" href="#">Ivan Ignatiev</a>
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
     <nav class="nav" aria-label="Основная навигация">
       <a href="#about">Обо мне</a>
       <a href="#skills">Навыки</a>
@@ -43,7 +44,7 @@
       </div>
     </section>
 
-    <section id="about" class="section about">
+    <section id="about" class="section about section--soft">
       <h2 class="section-title">Обо мне</h2>
       <div class="about-grid">
         <p>
@@ -64,7 +65,7 @@
       </div>
     </section>
 
-    <section id="skills" class="section skills">
+    <section id="skills" class="section skills section--soft">
       <h2 class="section-title">Навыки</h2>
       <ul class="skills-list">
         <li>JavaScript / TypeScript</li>
@@ -91,6 +92,7 @@
           <span class="project-tag">WEB</span>
           <h3>refs.show-stolicy.ru</h3>
           <p>Партнёрская программа «Шоу Столицы» — регистрация, реферальные ссылки и выплаты 15% с продажи билетов.</p>
+          <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
           <div class="project-gallery" aria-label="Скриншоты проекта">
             <figure class="project-gallery__item">
               <img src="images/refs-show-stolicy/1.png" alt="Главный экран — Зарабатывайте на искусстве" loading="lazy" width="1400" height="788" />
@@ -123,6 +125,7 @@
           <span class="project-tag">WEB</span>
           <h3>shows.msk.ru</h3>
           <p>Лендинг спектакля «Кыся» — афиша, артисты, программа, FAQ, карта площадки и бронирование мест.</p>
+          <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
           <div class="project-gallery" aria-label="Скриншоты shows.msk.ru">
             <figure class="project-gallery__item">
               <img src="images/shows-msk/1.png" alt="Главная — спектакль Кыся с таймером" loading="lazy" width="1400" height="788" />
