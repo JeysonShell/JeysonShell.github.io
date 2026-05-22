@@ -685,15 +685,20 @@ main {
   }
 }
 
-/* Desktop */
+/* Desktop — show full background illustration */
+@media (min-width: 768px) {
+  .site-bg img {
+    object-fit: contain;
+    object-position: right center;
+  }
+}
+
+/* Desktop layout */
 @media (min-width: 900px) {
   main {
     margin-left: clamp(1rem, 4vw, 3rem);
     margin-right: auto;
-  }
-
-  .site-bg img {
-    object-position: 62% 34%;
+    max-width: 36rem;
   }
 
   .hero-desc {
