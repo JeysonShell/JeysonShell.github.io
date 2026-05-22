@@ -11,9 +11,12 @@
   --accent-glow: #dbeafe;
   --serif: "Instrument Serif", Georgia, serif;
   --sans: "DM Sans", system-ui, sans-serif;
-  --page-max: 44rem;
+  --page-max: 42rem;
   --page-pad: clamp(1rem, 4vw, 2rem);
   --header-h: 3.75rem;
+  --panel-bg: rgba(255, 255, 255, 0.68);
+  --panel-border: rgba(15, 23, 42, 0.08);
+  --panel-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
 }
 
 *,
@@ -63,7 +66,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 48% 36%;
+  object-position: 58% 36%;
   image-rendering: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -80,13 +83,13 @@ img {
 }
 
 a {
-  color: #93c5fd;
+  color: var(--accent);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 a:hover {
-  color: #bfdbfe;
+  color: var(--accent-dim);
 }
 
 /* Header */
@@ -100,16 +103,16 @@ a:hover {
   gap: 1rem;
   min-height: var(--header-h);
   padding: 0.75rem var(--page-pad);
-  background: rgba(10, 8, 6, 0.55);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--panel-border);
   box-shadow: none;
 }
 
 .logo {
   font-weight: 600;
   font-size: clamp(0.95rem, 3.5vw, 1.05rem);
-  color: #fff;
+  color: var(--text);
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
@@ -120,13 +123,13 @@ a:hover {
 }
 
 .nav a {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--muted);
   font-size: 0.9rem;
   font-weight: 500;
 }
 
 .nav a:hover {
-  color: #fff;
+  color: var(--text);
 }
 
 .menu-btn {
@@ -138,8 +141,8 @@ a:hover {
   width: 44px;
   height: 44px;
   padding: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.12);
   border-radius: 8px;
   cursor: pointer;
 }
@@ -148,7 +151,7 @@ a:hover {
   display: block;
   width: 22px;
   height: 2px;
-  background: #fff;
+  background: var(--text);
   border-radius: 1px;
   transition: transform 0.2s, opacity 0.2s;
 }
@@ -183,8 +186,21 @@ main {
   padding: 0;
 }
 
+.hero--open {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
 .hero__content {
   min-width: 0;
+  padding: clamp(1.35rem, 4vw, 2rem);
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  box-shadow: var(--panel-shadow);
 }
 
 .hero-label {
@@ -195,9 +211,9 @@ main {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #bfdbfe;
-  background: rgba(37, 99, 235, 0.18);
-  border: 1px solid rgba(147, 197, 253, 0.35);
+  color: var(--accent-dim);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-glow);
   border-radius: 999px;
 }
 
@@ -208,22 +224,22 @@ main {
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.02em;
-  color: #fff;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  color: var(--text);
+  text-shadow: none;
   text-wrap: balance;
 }
 
 .hero-title em {
   font-style: italic;
-  color: #93c5fd;
+  color: var(--accent);
 }
 
 .hero-desc {
   margin: 0 0 2rem;
   max-width: 42ch;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
-  color: rgba(255, 255, 255, 0.88);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  color: var(--muted);
+  text-shadow: none;
 }
 
 .hero-actions {
@@ -243,8 +259,8 @@ main {
 
 .hero-stats li {
   padding: 0.85rem;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--panel-border);
   border-radius: 12px;
   box-shadow: none;
 }
@@ -256,14 +272,14 @@ main {
 
 .hero-stats strong {
   font-size: 0.95rem;
-  color: #fff;
+  color: var(--text);
 }
 
 .hero-stats span {
   margin-top: 0.2rem;
   font-size: 0.76rem;
   line-height: 1.35;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
 }
 
 .btn {
@@ -292,15 +308,15 @@ main {
 }
 
 .btn-ghost {
-  color: #fff;
-  background: rgba(15, 12, 8, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--panel-border);
 }
 
 .btn-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.45);
-  color: #fff;
-  background: rgba(15, 12, 8, 0.65);
+  border-color: rgba(15, 23, 42, 0.18);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 /* Sections */
@@ -310,11 +326,11 @@ main {
 }
 
 .section--panel {
-  background: rgba(10, 8, 6, 0.78);
+  background: var(--panel-bg);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--panel-border);
   border-radius: 20px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  box-shadow: var(--panel-shadow);
 }
 
 .section--soft {
@@ -331,8 +347,8 @@ main {
   font-family: var(--serif);
   font-size: clamp(1.65rem, 5vw, 2rem);
   font-weight: 400;
-  color: #fff;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+  color: var(--text);
+  text-shadow: none;
 }
 
 .section-heading {
@@ -349,7 +365,7 @@ main {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #93c5fd;
+  color: var(--accent);
 }
 
 .about__layout {
@@ -365,9 +381,9 @@ main {
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  background: rgba(255, 255, 255, 0.04) url("images/ivan/photo-alt-mobile.jpg") center top / cover no-repeat;
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  background: #fff url("images/ivan/photo-alt-mobile.jpg") center top / cover no-repeat;
 }
 
 .about__photo picture,
@@ -392,9 +408,9 @@ main {
 
 .about-grid p {
   margin: 0 0 1rem;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--muted);
   font-size: clamp(0.98rem, 2.5vw, 1.05rem);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  text-shadow: none;
 }
 
 .about-grid p:last-child {
@@ -402,7 +418,7 @@ main {
 }
 
 .about-grid strong {
-  color: #fff;
+  color: var(--text);
 }
 
 /* Skills */
@@ -419,9 +435,9 @@ main {
   padding: 0.5rem 1rem;
   font-size: 0.88rem;
   font-weight: 500;
-  color: #fff;
-  background: rgba(15, 12, 8, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--panel-border);
   border-radius: 999px;
   box-shadow: none;
 }
@@ -435,8 +451,8 @@ main {
 .resume-card,
 .experience-card {
   padding: 1rem 1.1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--panel-border);
   border-radius: 14px;
   box-shadow: none;
 }
@@ -455,12 +471,12 @@ main {
   display: block;
   margin-bottom: 0.45rem;
   font-size: 1rem;
-  color: #fff;
+  color: var(--text);
 }
 
 .resume-card p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--muted);
 }
 
 /* Experience */
@@ -477,12 +493,12 @@ main {
 
 .experience-meta span {
   font-size: 0.86rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
 }
 
 .experience-meta strong {
   font-size: 1.05rem;
-  color: #fff;
+  color: var(--text);
 }
 
 .experience-list {
@@ -490,7 +506,7 @@ main {
   gap: 0.75rem;
   margin: 0;
   padding-left: 1.1rem;
-  color: rgba(255, 255, 255, 0.84);
+  color: var(--muted);
 }
 
 .experience-list li::marker {
@@ -506,15 +522,15 @@ main {
 
 .project-card {
   padding: 1rem 1.15rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--panel-border);
   border-radius: 14px;
   box-shadow: none;
   transition: border-color 0.2s, transform 0.2s;
 }
 
 .project-card:not(.project-card--featured):hover {
-  border-color: rgba(255, 255, 255, 0.28);
+  border-color: rgba(15, 23, 42, 0.16);
   transform: translateY(-2px);
 }
 
@@ -526,7 +542,7 @@ main {
   display: none;
   margin: 0 0 0.75rem;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
 }
 
 .project-gallery {
@@ -539,9 +555,9 @@ main {
 .project-gallery__item {
   margin: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--panel-border);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
+  background: #fff;
   box-shadow: none;
 }
 
@@ -551,16 +567,16 @@ main {
   min-width: 100%;
   height: auto;
   vertical-align: middle;
-  background: rgba(255, 255, 255, 0.04);
+  background: #fff;
 }
 
 .project-gallery__item figcaption {
   padding: 0.65rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.72);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  border-top: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .project-tag {
@@ -571,8 +587,8 @@ main {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #bfdbfe;
-  background: rgba(37, 99, 235, 0.18);
+  color: var(--accent-dim);
+  background: var(--accent-soft);
   border-radius: 4px;
 }
 
@@ -580,14 +596,14 @@ main {
   margin: 0 0 0.5rem;
   font-size: clamp(1.05rem, 4vw, 1.2rem);
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
   word-break: break-word;
 }
 
 .project-card p {
   margin: 0 0 1rem;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--muted);
   line-height: 1.55;
 }
 
@@ -595,13 +611,13 @@ main {
   display: inline-block;
   margin-top: 0.25rem;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--muted);
 }
 
 /* Contact */
 .contact-lead {
   margin: 0 0 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--muted);
   font-size: 1.05rem;
 }
 
@@ -620,8 +636,8 @@ main {
   align-items: center;
   gap: 0.5rem 1rem;
   padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--panel-border);
   border-radius: 12px;
   box-shadow: none;
 }
@@ -629,7 +645,7 @@ main {
 .contact-list span {
   font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
 }
 
 .contact-list a {
@@ -644,7 +660,7 @@ main {
   padding: 2rem var(--page-pad);
   text-align: center;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
   background: transparent;
   border-top: none;
 }
@@ -671,6 +687,15 @@ main {
 
 /* Desktop */
 @media (min-width: 900px) {
+  main {
+    margin-left: clamp(1rem, 4vw, 3rem);
+    margin-right: auto;
+  }
+
+  .site-bg img {
+    object-position: 62% 34%;
+  }
+
   .hero-desc {
     max-width: 48ch;
   }
@@ -739,9 +764,9 @@ main {
     flex-direction: column;
     gap: 0;
     padding: 0.5rem var(--page-pad) 1rem;
-    background: rgba(15, 12, 8, 0.92);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--panel-border);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
     transform: translateY(-110%);
     opacity: 0;
     pointer-events: none;
@@ -757,7 +782,7 @@ main {
   .nav a {
     padding: 0.85rem 0;
     font-size: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--panel-border);
   }
 
   .nav a:last-child {
