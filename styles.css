@@ -760,9 +760,13 @@ main {
 
 /* Desktop layout */
 @media (min-width: 768px) {
+  :root {
+    --page-max: 56rem;
+  }
+
   main {
     margin: 0 auto;
-    max-width: var(--page-max);
+    max-width: min(94vw, var(--page-max));
     text-align: center;
   }
 
@@ -777,7 +781,7 @@ main {
   }
 
   .hero-stats {
-    max-width: 36rem;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -798,7 +802,7 @@ main {
   }
 
   .about-grid {
-    max-width: 70ch;
+    max-width: none;
     margin: 0 auto;
     text-align: center;
   }
