@@ -497,6 +497,33 @@ main {
   gap: 1.25rem;
 }
 
+.experience-gallery-hint {
+  display: none;
+  margin: 0.5rem 0 0;
+}
+
+.experience-gallery-hint,
+.experience-gallery {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .experience-gallery-hint {
+    display: none !important;
+  }
+
+  .experience-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .experience-gallery .project-gallery__item img {
+    max-height: 28rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
 .experience-meta {
   display: flex;
   flex-direction: column;
@@ -895,6 +922,10 @@ main {
     display: block;
   }
 
+  .experience-gallery-hint {
+    display: block;
+  }
+
   .project-gallery {
     display: flex;
     flex-direction: row;
@@ -917,6 +948,16 @@ main {
 
   .project-gallery__item img {
     min-height: 10rem;
+  }
+
+  .experience-gallery .project-gallery__item {
+    flex: 0 0 min(72vw, 16rem);
+  }
+
+  .experience-gallery .project-gallery__item img {
+    min-height: 18rem;
+    object-fit: cover;
+    object-position: top center;
   }
 
   .contact-list li {
