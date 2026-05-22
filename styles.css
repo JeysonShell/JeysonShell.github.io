@@ -368,12 +368,21 @@ main {
   align-items: start;
 }
 
+.about__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 10.5rem) minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  align-items: center;
+  width: min(100%, 36rem);
+  margin-inline: auto;
+}
+
 .about__photos {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  width: min(100%, 18rem);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
 }
 
 .about__photo {
@@ -424,8 +433,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0;
-  width: min(100%, 22rem);
-  margin-inline: auto;
+  width: 100%;
+  min-width: 0;
 }
 
 .about-facts__item {
@@ -461,13 +470,17 @@ main {
 .about-facts__icon--flag {
   padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.08);
 }
 
+.about-facts__icon--flag img,
 .about-facts__icon--flag svg {
+  display: block;
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .about-facts__text {
@@ -1068,12 +1081,10 @@ main {
     gap: 2rem;
   }
 
-  .about-facts {
-    width: min(100%, 24rem);
-  }
-
-  .about__photos {
-    width: min(100%, 20rem);
+  .about__intro {
+    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+    gap: 1.25rem 1.75rem;
+    width: min(100%, 42rem);
   }
 
   .about__photo {
@@ -1192,9 +1203,15 @@ main {
     gap: 1.5rem;
   }
 
+  .about__intro {
+    grid-template-columns: minmax(0, 7.75rem) minmax(0, 1fr);
+    gap: 0.85rem 1rem;
+    width: 100%;
+  }
+
   .about__photos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: min(100%, 22rem);
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .about__photo {

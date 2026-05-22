@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=37" />
+  <link rel="stylesheet" href="styles.css?v=38" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css"
@@ -48,58 +48,60 @@
     <section id="about" class="section about section--panel">
       <h2 class="section-title">Обо мне</h2>
       <div class="about__layout">
-        <div class="about__photos">
-          <figure class="about__photo">
-            <picture>
-              <source media="(max-width: 767px)" srcset="images/ivan/photo-alt-mobile.jpg" />
-              <img
-                src="images/ivan/photo-alt.jpg"
-                alt="Иван Игнатьев"
-                width="480"
-                height="640"
-                decoding="sync"
-              />
-            </picture>
-          </figure>
+        <div class="about__intro">
+          <div class="about__photos">
+            <figure class="about__photo">
+              <picture>
+                <source media="(max-width: 767px)" srcset="images/ivan/photo-alt-mobile.jpg" />
+                <img
+                  src="images/ivan/photo-alt.jpg"
+                  alt="Иван Игнатьев"
+                  width="480"
+                  height="640"
+                  decoding="sync"
+                />
+              </picture>
+            </figure>
+          </div>
+          <ul class="about-facts" aria-label="Краткая информация">
+            <li class="about-facts__item">
+              <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
+                <img src="images/flags/ru.svg" alt="" width="40" height="40" />
+              </span>
+              <span class="about-facts__text">
+                <strong>Русский</strong>
+                <span>Родной</span>
+              </span>
+            </li>
+            <li class="about-facts__item">
+              <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
+                <img src="images/flags/us.svg" alt="" width="40" height="40" />
+              </span>
+              <span class="about-facts__text">
+                <strong>Английский</strong>
+                <span>B2</span>
+              </span>
+            </li>
+            <li class="about-facts__item">
+              <span class="about-facts__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="about-facts__text">
+                <strong>Удалённо</strong>
+                <span>готов к переезду</span>
+              </span>
+            </li>
+            <li class="about-facts__item">
+              <span class="about-facts__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg>
+              </span>
+              <span class="about-facts__text">
+                <strong>Москва</strong>
+                <span>м. Семёновская</span>
+              </span>
+            </li>
+          </ul>
         </div>
-        <ul class="about-facts" aria-label="Краткая информация">
-          <li class="about-facts__item">
-            <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="8" fill="#fff"/><rect y="8" width="24" height="8" fill="#0039A6"/><rect y="16" width="24" height="8" fill="#D52B1E"/></svg>
-            </span>
-            <span class="about-facts__text">
-              <strong>Русский</strong>
-              <span>Родной</span>
-            </span>
-          </li>
-          <li class="about-facts__item">
-            <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" fill="#B22234"/><path fill="#fff" d="M0 2.77h24M0 7.38h24M0 12h24M0 16.62h24M0 21.23h24"/><rect width="10" height="12" fill="#3C3B6E"/></svg>
-            </span>
-            <span class="about-facts__text">
-              <strong>Английский</strong>
-              <span>B2</span>
-            </span>
-          </li>
-          <li class="about-facts__item">
-            <span class="about-facts__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            </span>
-            <span class="about-facts__text">
-              <strong>Удалённо</strong>
-              <span>готов к переезду</span>
-            </span>
-          </li>
-          <li class="about-facts__item">
-            <span class="about-facts__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg>
-            </span>
-            <span class="about-facts__text">
-              <strong>Москва</strong>
-              <span>м. Семёновская</span>
-            </span>
-          </li>
-        </ul>
         <div class="about-grid">
         <p>
           <strong>Иван Игнатьев</strong> — full‑stack разработчик из Москвы. Проектирую и запускаю
