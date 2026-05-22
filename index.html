@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
   <link rel="preload" as="image" href="images/ivan/photo-main-mobile.jpg" media="(max-width: 767px)" />
   <link rel="preload" as="image" href="images/ivan/photo-main.jpg" media="(min-width: 768px)" />
 </head>
@@ -20,7 +20,9 @@
     <div class="nav-overlay" id="nav-overlay" hidden></div>
     <nav class="nav" aria-label="Основная навигация">
       <a href="#about">Обо мне</a>
+      <a href="#summary">Резюме</a>
       <a href="#skills">Навыки</a>
+      <a href="#experience">Опыт</a>
       <a href="#projects">Проекты</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -46,18 +48,23 @@
           </picture>
         </figure>
         <div class="hero__content">
-          <p class="hero-label">Разработчик</p>
+          <p class="hero-label">Full-stack разработчик (AI-assisted)</p>
           <h1 class="hero-title">
             Создаю <em>веб‑приложения</em><br />
             и автоматизацию
           </h1>
           <p class="hero-desc">
-            Full‑stack разработка, боты, сайты для бизнеса.
-            От идеи до деплоя.
+            Next.js, React, TypeScript, Prisma, Docker и AI‑инструменты.
+            Помогаю превращать идеи в работающие digital‑продукты.
           </p>
+          <ul class="hero-stats" aria-label="Ключевые факты">
+            <li><strong>2+ года</strong><span>коммерческого опыта</span></li>
+            <li><strong>Продакшен</strong><span>ticketing‑платформа</span></li>
+            <li><strong>11 лет</strong><span>продажи и управление</span></li>
+          </ul>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
-            <a class="btn btn-ghost" href="https://github.com/JeysonShell" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-ghost" href="#summary">Резюме</a>
           </div>
         </div>
       </div>
@@ -98,18 +105,74 @@
       </div>
     </section>
 
+    <section id="summary" class="section resume-summary">
+      <div class="section-heading">
+        <p class="section-kicker">Резюме</p>
+        <h2 class="section-title">Что важно знать</h2>
+      </div>
+      <div class="resume-cards">
+        <article class="resume-card">
+          <span>Позиция</span>
+          <strong>Full-stack разработчик (AI-assisted)</strong>
+          <p>Удалённая работа, проектная или частичная занятость.</p>
+        </article>
+        <article class="resume-card">
+          <span>Продукт</span>
+          <strong>Show Stolicy</strong>
+          <p>Платформа продажи билетов на театральные и концертные события.</p>
+        </article>
+        <article class="resume-card">
+          <span>Роль</span>
+          <strong>От идеи до продакшена</strong>
+          <p>Интерфейс, серверная логика, авторизация, API, заказы, реферальная система и админ‑панель.</p>
+        </article>
+        <article class="resume-card">
+          <span>Формат</span>
+          <strong>Удалённо и проектно</strong>
+          <p>Готов к полной, частичной и проектной занятости, открыт к редким командировкам.</p>
+        </article>
+      </div>
+    </section>
+
     <section id="skills" class="section skills section--soft">
       <h2 class="section-title">Навыки</h2>
       <ul class="skills-list">
         <li>JavaScript / TypeScript</li>
         <li>React / Next.js</li>
         <li>Node.js</li>
-        <li>Flutter / Dart</li>
-        <li>Python</li>
+        <li>MUI</li>
+        <li>Prisma</li>
+        <li>SQLite</li>
+        <li>Auth.js</li>
+        <li>REST API</li>
         <li>Git & GitHub</li>
         <li>Docker</li>
-        <li>Hardhat / Web3</li>
+        <li>GitHub Actions</li>
+        <li>SSH</li>
+        <li>Cursor / ChatGPT</li>
+        <li>API‑интеграции</li>
       </ul>
+    </section>
+
+    <section id="experience" class="section experience">
+      <div class="section-heading">
+        <p class="section-kicker">Опыт</p>
+        <h2 class="section-title">Шоу Столицы</h2>
+      </div>
+      <div class="experience-card">
+        <div class="experience-meta">
+          <span>Январь 2024 — настоящее время</span>
+          <strong>Full-stack разработчик</strong>
+          <a href="https://show-stolicy.ru/" target="_blank" rel="noopener noreferrer">show-stolicy.ru</a>
+        </div>
+        <ul class="experience-list">
+          <li>Разработал и запустил fullstack‑платформу для продажи билетов на культурные события в Москве.</li>
+          <li>Реализовал клиентский интерфейс, серверную логику, Auth.js, API‑маршруты, управление заказами, реферальную систему и админ‑панель.</li>
+          <li>Спроектировал базу данных и серверную часть на Prisma и SQLite.</li>
+          <li>Настроил деплой и обновление приложения через Docker, GitHub Actions и SSH.</li>
+          <li>Использую Cursor и ChatGPT для архитектуры, прототипирования, рефакторинга и быстрого запуска новых функций.</li>
+        </ul>
+      </div>
     </section>
 
     <section id="projects" class="section projects">
@@ -211,6 +274,10 @@
         <li>
           <span>Telegram</span>
           <a href="https://t.me/burn_life1" target="_blank" rel="noopener noreferrer">@burn_life1</a>
+        </li>
+        <li>
+          <span>Email</span>
+          <a href="mailto:94.moscowshow@mail.ru">94.moscowshow@mail.ru</a>
         </li>
         <li>
           <span>GitHub</span>
