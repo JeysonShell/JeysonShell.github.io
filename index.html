@@ -11,7 +11,7 @@
   <meta name="description" content="Ivan Ignatiev — разработчик. Портфолио проектов и контакты." />
   <script>
     (function () {
-      var build = "20260522b";
+      var build = "20260522c";
       var key = "portfolio-build";
       var saved = localStorage.getItem(key);
       if (saved && saved !== build) {
@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260522b" />
+  <link rel="stylesheet" href="styles.css?v=20260522c" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css"
@@ -435,10 +435,65 @@
           </div>
           <span class="project-private">Private repo</span>
         </article>
-        <article class="project-card">
+        <article class="project-card project-card--featured">
           <span class="project-tag">E‑commerce</span>
           <h3><a class="project-link" href="https://mirvana.msk.ru/" target="_blank" rel="noopener noreferrer">mirvana.msk.ru</a></h3>
-          <p>Сайт для продажи ванн и сопутствующих товаров.</p>
+          <p>Сайт реставрации ванн с заявками с лендинга, прайсом и админ‑панелью: заказы, мастера, услуги, портфолио работ и настройки контента.</p>
+          <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
+          <div class="project-gallery" aria-label="Скриншоты mirvana.msk.ru">
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/01-hero.jpg?v=20260522c" alt="Главная — реставрация ванн без демонтажа" loading="lazy" width="1400" height="751" />
+              <figcaption>1. Главная страница</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/02-services.jpg?v=20260522c" alt="Преимущества и популярные услуги" loading="lazy" width="1400" height="751" />
+              <figcaption>2. Услуги и преимущества</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/03-works.jpg?v=20260522c" alt="Примеры работ до и после реставрации" loading="lazy" width="1400" height="751" />
+              <figcaption>3. Примеры работ</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/04-pricing.jpg?v=20260522c" alt="Ориентиры по прайсу на услуги" loading="lazy" width="1400" height="751" />
+              <figcaption>4. Прайс</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/05-lead-form.jpg?v=20260522c" alt="Форма заявки на реставрацию" loading="lazy" width="1400" height="751" />
+              <figcaption>5. Заявка с сайта</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/06-admin-login.png?v=20260522c" alt="Вход в админку Мирвана" loading="lazy" width="1400" height="751" />
+              <figcaption>6. Вход в админку</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/07-admin-overview.png?v=20260522c" alt="Обзор админ-панели со статистикой" loading="lazy" width="1400" height="751" />
+              <figcaption>7. Обзор админки</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/08-admin-orders.png?v=20260522c" alt="Заказы и назначение мастера" loading="lazy" width="1400" height="751" />
+              <figcaption>8. Заказы</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/09-admin-masters.png?v=20260522c" alt="Справочник мастеров" loading="lazy" width="1400" height="751" />
+              <figcaption>9. Мастера</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/10-admin-master-new.png?v=20260522c" alt="Форма добавления мастера" loading="lazy" width="1400" height="751" />
+              <figcaption>10. Новый мастер</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/11-admin-services.png?v=20260522c" alt="CRUD услуг в админке" loading="lazy" width="1400" height="751" />
+              <figcaption>11. Услуги в админке</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/12-admin-works.png?v=20260522c" alt="CRUD примеров работ" loading="lazy" width="1400" height="751" />
+              <figcaption>12. Работы в админке</figcaption>
+            </figure>
+            <figure class="project-gallery__item">
+              <img src="images/mirvana/13-admin-settings.png?v=20260522c" alt="Настройки hero, контактов и ссылок" loading="lazy" width="1400" height="751" />
+              <figcaption>13. Настройки сайта</figcaption>
+            </figure>
+          </div>
           <span class="project-private">Private repo</span>
         </article>
       </div>
@@ -489,6 +544,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js"></script>
-  <script src="script.js?v=20260522b"></script>
+  <script src="script.js?v=20260522c"></script>
 </body>
 </html>
