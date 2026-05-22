@@ -152,7 +152,8 @@ main {
 }
 
 .hero__layout {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   align-items: center;
 }
@@ -162,9 +163,9 @@ main {
 }
 
 .hero__photo {
+  flex-shrink: 0;
+  width: min(85vw, 17.5rem);
   margin: 0;
-  justify-self: center;
-  width: min(100%, 17rem);
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -176,7 +177,7 @@ main {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  vertical-align: middle;
   object-fit: cover;
   object-position: center 15%;
 }
@@ -304,7 +305,7 @@ main {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  vertical-align: middle;
   object-fit: cover;
   object-position: center top;
 }
@@ -400,8 +401,10 @@ main {
 .project-gallery__item img {
   display: block;
   width: 100%;
+  min-width: 100%;
   height: auto;
   vertical-align: middle;
+  background: var(--bg-soft);
 }
 
 .project-gallery__item figcaption {
@@ -516,13 +519,20 @@ main {
 /* Desktop */
 @media (min-width: 768px) {
   .hero__layout {
+    display: grid;
     grid-template-columns: 1fr minmax(14rem, 18rem);
     gap: 2.5rem 3rem;
+    align-items: center;
   }
 
   .hero__photo {
+    order: 2;
     width: 100%;
     justify-self: end;
+  }
+
+  .hero__content {
+    order: 1;
   }
 }
 
@@ -614,22 +624,25 @@ main {
     display: flex;
   }
 
-  .hero__layout {
-    grid-template-columns: 1fr;
+  .hero__photo {
+    width: min(85vw, 17.5rem);
   }
 
-  .hero__photo {
-    order: -1;
-    width: min(72vw, 16rem);
+  .about__layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .about__photo {
+    width: min(85vw, 14rem);
+    max-width: none;
   }
 
   .hero-actions .btn {
     flex: 1 1 auto;
     min-width: min(100%, 10rem);
-  }
-
-  .about__photo {
-    max-width: min(72vw, 14rem);
   }
 
   .project-gallery-hint {
@@ -651,8 +664,13 @@ main {
   }
 
   .project-gallery__item {
-    flex: 0 0 min(88vw, 22rem);
+    flex: 0 0 min(92vw, 24rem);
     scroll-snap-align: start;
+    min-height: 1px;
+  }
+
+  .project-gallery__item img {
+    min-height: 10rem;
   }
 
   .contact-list li {
