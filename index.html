@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <header class="header">
@@ -29,24 +29,58 @@
 
   <main>
     <section class="hero">
-      <p class="hero-label">Разработчик</p>
-      <h1 class="hero-title">
-        Создаю <em>веб‑приложения</em><br />
-        и автоматизацию
-      </h1>
-      <p class="hero-desc">
-        Full‑stack разработка, боты, сайты для бизнеса.
-        От идеи до деплоя.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
-        <a class="btn btn-ghost" href="https://github.com/JeysonShell" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <div class="hero__layout">
+        <div class="hero__content">
+          <p class="hero-label">Разработчик</p>
+          <h1 class="hero-title">
+            Создаю <em>веб‑приложения</em><br />
+            и автоматизацию
+          </h1>
+          <p class="hero-desc">
+            Full‑stack разработка, боты, сайты для бизнеса.
+            От идеи до деплоя.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
+            <a class="btn btn-ghost" href="https://github.com/JeysonShell" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+        <figure class="hero__photo">
+          <img
+            src="images/ivan/photo-main.jpg"
+            alt="Иван Игнатьев — веб‑разработчик"
+            width="900"
+            height="1200"
+            fetchpriority="high"
+          />
+        </figure>
       </div>
     </section>
 
     <section id="about" class="section about section--soft">
       <h2 class="section-title">Обо мне</h2>
-      <div class="about-grid">
+      <div class="about__layout">
+        <div class="about__photos" aria-label="Фотографии">
+          <figure class="about__photo about__photo--main">
+            <img
+              src="images/ivan/photo-main.jpg"
+              alt="Иван Игнатьев в деловом костюме"
+              loading="lazy"
+              width="900"
+              height="1200"
+            />
+          </figure>
+          <figure class="about__photo about__photo--alt">
+            <img
+              src="images/ivan/photo-alt.jpg"
+              alt="Иван Игнатьев"
+              loading="lazy"
+              width="900"
+              height="1200"
+            />
+          </figure>
+        </div>
+        <div class="about-grid">
         <p>
           <strong>Иван Игнатьев</strong> — веб‑разработчик и предприниматель из Москвы,
           который создаёт современные digital‑продукты на стыке технологий, бизнеса и
@@ -62,6 +96,7 @@
           Иван занимается боксом и участвует в «Гонке Героев», что хорошо отражает его характер —
           дисциплину, выносливость и ориентацию на результат.
         </p>
+        </div>
       </div>
     </section>
 
