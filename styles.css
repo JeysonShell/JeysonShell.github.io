@@ -477,7 +477,8 @@ main > section {
 }
 
 .about-facts__icon--flag img,
-.about-facts__icon--flag svg {
+.about-facts__icon--flag svg,
+.about-facts__flag {
   display: block;
   width: 100%;
   height: 100%;
