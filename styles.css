@@ -706,9 +706,9 @@ main {
   .site-bg__desktop {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: clamp(0.25rem, 1vw, 1rem);
-    padding-right: clamp(0.5rem, 2vw, 1.5rem);
+    padding: 0 clamp(0.5rem, 2vw, 1.5rem);
   }
 
   .site-bg__art {
@@ -721,33 +721,71 @@ main {
 }
 
 /* Desktop layout */
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   main {
-    margin-left: clamp(1rem, 4vw, 3rem);
-    margin-right: auto;
-    max-width: 36rem;
+    margin: 0 auto;
+    max-width: var(--page-max);
+    text-align: center;
+  }
+
+  .hero__content {
+    text-align: center;
   }
 
   .hero-desc {
     max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-stats {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 
   .about__layout {
-    grid-template-columns: minmax(16rem, 20rem) 1fr;
-    gap: 2.5rem 3rem;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2rem;
   }
 
   .about__photo {
-    margin: 0;
+    margin: 0 auto;
     max-width: 16rem;
   }
 
   .about-grid {
-    max-width: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+    max-width: 70ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .skills-list {
+    justify-content: center;
+  }
+
+  .section-heading,
+  .section-title {
+    text-align: center;
+  }
+
+  .experience-card {
+    text-align: left;
+  }
+
+  .experience-list {
+    text-align: left;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-desc {
+    max-width: 48ch;
   }
 
   .about-grid p {
