@@ -386,16 +386,24 @@ main {
   align-items: start;
 }
 
+.about__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(100%, 30rem);
+  margin: 0 auto;
+}
+
 .about__photo {
   display: block;
-  width: min(85vw, 14rem);
+  width: 100%;
   min-height: 12rem;
-  margin: 0 auto;
+  margin: 0;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--panel-border);
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-  background: #fff url("images/ivan/photo-alt-mobile.jpg") center top / cover no-repeat;
+  background: #fff;
 }
 
 .about__photo picture,
@@ -406,12 +414,6 @@ main {
   min-height: 12rem;
   object-fit: cover;
   object-position: center top;
-}
-
-@media (min-width: 768px) {
-  .about__photo {
-    background-image: url("images/ivan/photo-alt.jpg");
-  }
 }
 
 .about-grid {
@@ -847,9 +849,12 @@ main {
     gap: 2rem;
   }
 
+  .about__photos {
+    width: min(100%, 34rem);
+  }
+
   .about__photo {
-    margin: 0 auto;
-    max-width: 16rem;
+    max-width: none;
   }
 
   .about-grid {
@@ -968,10 +973,13 @@ main {
     gap: 1.5rem;
   }
 
+  .about__photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 22rem);
+  }
+
   .about__photo {
-    width: min(88vw, 14rem);
     min-height: 14rem;
-    max-width: none;
   }
 
   .about__photo picture,

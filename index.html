@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=28" />
+  <link rel="stylesheet" href="styles.css?v=29" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css"
@@ -80,18 +80,33 @@
     <section id="about" class="section about section--panel">
       <h2 class="section-title">Обо мне</h2>
       <div class="about__layout">
-        <figure class="about__photo">
-          <picture>
-            <source media="(max-width: 767px)" srcset="images/ivan/photo-alt-mobile.jpg" />
-            <img
-              src="images/ivan/photo-alt.jpg"
-              alt="Иван Игнатьев"
-              width="480"
-              height="640"
-              decoding="sync"
-            />
-          </picture>
-        </figure>
+        <div class="about__photos">
+          <figure class="about__photo">
+            <picture>
+              <source media="(max-width: 767px)" srcset="images/ivan/photo-alt-mobile.jpg" />
+              <img
+                src="images/ivan/photo-alt.jpg"
+                alt="Иван Игнатьев"
+                width="480"
+                height="640"
+                decoding="sync"
+              />
+            </picture>
+          </figure>
+          <figure class="about__photo">
+            <picture>
+              <source media="(max-width: 767px)" srcset="images/ivan/photo-main-mobile.jpg" />
+              <img
+                src="images/ivan/photo-main.jpg"
+                alt="Иван Игнатьев в деловом костюме"
+                width="674"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </figure>
+        </div>
         <div class="about-grid">
         <p>
           <strong>Иван Игнатьев</strong> — full‑stack разработчик из Москвы. Проектирую и запускаю
