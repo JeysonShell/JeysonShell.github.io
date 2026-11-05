@@ -996,6 +996,10 @@ main > section {
   line-height: 1.55;
 }
 
+.project-points {
+  margin: 0 0 1rem;
+}
+
 .project-private {
   display: inline-block;
   margin-top: 0.25rem;
