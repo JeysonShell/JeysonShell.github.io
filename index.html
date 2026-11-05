@@ -11,7 +11,7 @@
   <meta name="description" content="Ivan Ignatiev — Full-stack разработчик / AI-инженер. Мультиагентная разработка. Портфолио и контакты." />
   <script>
     (function () {
-      var build = "20261105b";
+      var build = "20261105c";
       var key = "portfolio-build";
       var saved = localStorage.getItem(key);
       if (saved && saved !== build) {
@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261105b" />
+  <link rel="stylesheet" href="styles.css?v=20261105c" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css"
@@ -376,9 +376,10 @@
         <article class="project-card project-card--featured">
           <span class="project-tag">AI</span>
           <h3>Мультиагентный оркестратор</h3>
-          <p>Локальная система на FastAPI и Ollama (Qwen 2.5). Пять режимов — research, programming, design, analytics, strategy — с историей задач, метриками и потоком прогресса.</p>
+          <p>Система на FastAPI. Пять режимов — research, programming, design, analytics, strategy — с историей задач, метриками и потоком прогресса.</p>
           <ul class="experience-list project-points">
             <li>Оркестратор делит задачу между агентами, проверяет результат и пишет отчёт.</li>
+            <li>Подключены четыре бесплатных ИИ с ежедневным обновлением токенов. Модель переключается между ними, поэтому оркестратор работает и на слабом компьютере.</li>
             <li>Код исполняется в песочнице. Опасные действия останавливаются до явного подтверждения.</li>
             <li>Подключены поиск, история запусков и метрики агентов.</li>
           </ul>
@@ -612,6 +613,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js"></script>
-  <script src="script.js?v=20261105b"></script>
+  <script src="script.js?v=20261105c"></script>
 </body>
 </html>
