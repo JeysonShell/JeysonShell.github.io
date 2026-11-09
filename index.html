@@ -4,614 +4,243 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#050508" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <meta name="description" content="Ivan Ignatiev — full-stack разработчик. Веб-приложения в продакшене и локальный мультиагентный оркестратор. Портфолио и контакты." />
-  <script>
-    (function () {
-      var build = "20261109c";
-      var key = "portfolio-build";
-      var saved = localStorage.getItem(key);
-      if (saved && saved !== build) {
-        localStorage.setItem(key, build);
-        var url = new URL(window.location.href);
-        if (url.searchParams.get("fresh") !== build) {
-          url.searchParams.set("fresh", build);
-          window.location.replace(url.toString());
-          return;
-        }
-      }
-      if (!saved) localStorage.setItem(key, build);
-    })();
-  </script>
-  <title>Ivan Ignatiev — Portfolio</title>
+  <meta name="theme-color" content="#06080c" />
+  <title>Ivan Ignatiev — Full-stack разработчик</title>
+  <meta name="description" content="Иван Игнатьев — full-stack разработчик из Москвы. Билетная платформа в продакшене, 3D-схемы залов, Telegram-бот и мультиагентные эксперименты. Портфолио и контакты." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ivan Ignatiev — Full-stack разработчик" />
+  <meta property="og:description" content="Веб-приложения от интерфейса до деплоя: Next.js, React, TypeScript, Prisma, Python, FastAPI." />
+  <meta property="og:image" content="https://jeysonshell.github.io/images/ivan/photo-main.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235cf2c8'/%3E%3Cstop offset='1' stop-color='%236aa8ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='14' fill='%2304100c'%3EII%3C/text%3E%3C/svg%3E" />
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261109c" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css"
-  />
-  <link rel="preload" as="image" href="images/background/ironman-hero-bg.jpg?v=20260522d" />
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="site-bg" aria-hidden="true">
-    <img
-      class="site-bg__image"
-      src="images/background/ironman-hero-bg.jpg?v=20260522d"
-      alt=""
-      width="1905"
-      height="1080"
-      decoding="async"
-      fetchpriority="high"
-    />
-  </div>
-  <header class="header">
-    <a class="logo" href="#">Ivan Ignatiev</a>
-    <div class="nav-overlay" id="nav-overlay" hidden></div>
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#about">Обо мне</a>
-      <a href="#skills">Навыки</a>
-      <a href="#summary">Резюме</a>
-      <a href="#experience">Опыт</a>
-      <a href="#projects">Проекты</a>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="hud" id="hud">
+    <a class="hud__logo" href="#top" aria-label="Ivan Ignatiev — наверх">
+      <span class="hud__mark">II</span><span class="hud__name">Ivan Ignatiev</span>
+    </a>
+    <nav class="hud__nav" id="nav" aria-label="Основная навигация">
+      <a href="#about" data-nav="about"><em>01</em>Обо мне</a>
+      <a href="#skills" data-nav="skills"><em>02</em>Навыки</a>
+      <a href="#experience" data-nav="experience"><em>03</em>Опыт</a>
+      <a href="#projects" data-nav="projects"><em>04</em>Проекты</a>
+      <a href="#lab" data-nav="lab"><em>05</em>Эксперименты</a>
+      <a class="hud__cta hud__cta--menu" href="#contact" data-nav="contact">Связаться</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Меню" aria-expanded="false">
+    <a class="hud__cta" href="#contact">Связаться</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav">
       <span></span><span></span>
     </button>
   </header>
 
-  <main>
-    <section id="about" class="section about section--panel">
-      <h2 class="section-title">Обо мне</h2>
-      <div class="about__layout">
-        <div class="about__intro">
-          <div class="about__photos">
-            <figure class="about__photo">
-              <picture>
-                <source media="(max-width: 767px)" srcset="images/ivan/photo-alt-mobile.jpg" />
-                <img
-                  src="images/ivan/photo-alt.jpg"
-                  alt="Иван Игнатьев"
-                  width="480"
-                  height="640"
-                  decoding="sync"
-                />
-              </picture>
-            </figure>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow"><i class="eyebrow__dot"></i>Full‑stack разработчик · Москва · удалённо</p>
+          <h1 class="hero__title" aria-label="Создаю веб‑приложения и автоматизацию">
+            <span class="line"><span>Создаю</span></span>
+            <span class="line"><span><em>веб‑приложения</em></span></span>
+            <span class="line"><span>и автоматизацию</span></span>
+          </h1>
+          <p class="hero__lead">
+            Next.js, React, TypeScript, Prisma, Python и FastAPI. В продакшене — билетная платформа.
+            Рядом — 3D‑схемы залов, Telegram‑бот и мультиагентные эксперименты.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects">Смотреть проекты <svg class="ico-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn--ghost" href="#contact">Написать мне</a>
           </div>
-          <ul class="about-facts" aria-label="Краткая информация">
-            <li class="about-facts__item">
-              <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
-                <svg class="about-facts__flag" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                  <defs>
-                    <clipPath id="about-flag-ru">
-                      <circle cx="256" cy="256" r="256"/>
-                    </clipPath>
-                  </defs>
-                  <g clip-path="url(#about-flag-ru)">
-                    <path fill="#0052b4" d="M512 170v172l-256 32L0 342V170l256-32z"/>
-                    <path fill="#eee" d="M512 0v170H0V0Z"/>
-                    <path fill="#d80027" d="M512 342v170H0V342Z"/>
-                  </g>
-                </svg>
-              </span>
-              <span class="about-facts__text">
-                <strong>Русский</strong>
-                <span>Родной</span>
-              </span>
-            </li>
-            <li class="about-facts__item">
-              <span class="about-facts__icon about-facts__icon--flag" aria-hidden="true">
-                <svg class="about-facts__flag" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                  <defs>
-                    <clipPath id="about-flag-us">
-                      <circle cx="256" cy="256" r="256"/>
-                    </clipPath>
-                  </defs>
-                  <g clip-path="url(#about-flag-us)">
-                    <path fill="#eee" d="M256 0h256v64l-32 32 32 32v64l-32 32 32 32v64l-32 32 32 32v64l-256 32L0 448v-64l32-32-32-32v-64z"/>
-                    <path fill="#d80027" d="M224 64h288v64H224Zm0 128h288v64H256ZM0 320h512v64H0Zm0 128h512v64H0Z"/>
-                    <path fill="#0052b4" d="M0 0h256v256H0Z"/>
-                    <path fill="#eee" d="m187 243 57-41h-70l57 41-22-67zm-81 0 57-41H93l57 41-22-67zm-81 0 57-41H12l57 41-22-67zm162-81 57-41h-70l57 41-22-67zm-81 0 57-41H93l57 41-22-67zm-81 0 57-41H12l57 41-22-67Zm162-82 57-41h-70l57 41-22-67Zm-81 0 57-41H93l57 41-22-67zm-81 0 57-41H12l57 41-22-67Z"/>
-                  </g>
-                </svg>
-              </span>
-              <span class="about-facts__text">
-                <strong>Английский</strong>
-                <span>B2</span>
-              </span>
-            </li>
-            <li class="about-facts__item">
-              <span class="about-facts__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-              </span>
-              <span class="about-facts__text">
-                <strong>Удалённо</strong>
-                <span>готов к переезду</span>
-              </span>
-            </li>
-            <li class="about-facts__item">
-              <span class="about-facts__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg>
-              </span>
-              <span class="about-facts__text">
-                <strong>Москва</strong>
-                <span>м. Семёновская</span>
-              </span>
-            </li>
+          <ul class="stats" aria-label="Ключевые факты">
+            <li><strong>с 2024</strong><span>билетная платформа в продакшене</span></li>
+            <li><strong><b data-count="18">18</b> залов</strong><span><b data-count="23515" data-sep="1">23 515</b> мест в 3D‑схемах</span></li>
+            <li><strong><b data-count="11">11</b> лет</strong><span>продажи и управление</span></li>
           </ul>
         </div>
-        <div class="about-grid">
-        <p>
-          <strong>Иван Игнатьев</strong> — <strong>full‑stack разработчик</strong> из Москвы.
-          Делаю веб‑приложения целиком: интерфейс, сервер, авторизация, заказы,
-          админ‑панель и деплой. Агентов использую, чтобы быстрее доводить фичу до продакшена.
-        </p>
-        <p>
-          Соавтор платформы <strong>Show Stolicy</strong> — сервиса продажи билетов на театральные
-          и концертные события. Отвечаю за архитектуру, реализацию и вывод фич в production —
-          от афиши и выбора мест до партнёрской программы и лендингов спектаклей.
-        </p>
-        <p>
-          11 лет в продажах и управлении научили смотреть на продукт через бизнес: какую задачу
-          решаем, кому это нужно и как измерить результат. Отдельно собрал локальный оркестратор
-          на Python и Ollama, 3D‑схемы залов и Telegram‑бота для подбора билетов.
-        </p>
-        <p>
-          По выходным хожу в храм. Занимаюсь физкультурой, в основном боксом.
-          На проектах так же: дисциплина, выносливость и фокус на результат.
-        </p>
+        <figure class="hero__photo" aria-label="Портрет">
+          <div class="frame">
+            <picture>
+              <source media="(max-width: 767px)" srcset="images/ivan/photo-main-mobile.jpg" />
+              <img src="images/ivan/photo-main.jpg" alt="Иван Игнатьев" width="674" height="900" fetchpriority="high" />
+            </picture>
+            <i class="frame__scan" aria-hidden="true"></i>
+            <i class="c c--tl"></i><i class="c c--tr"></i><i class="c c--bl"></i><i class="c c--br"></i>
+          </div>
+          <span class="float float--a">Next.js</span>
+          <span class="float float--b">FastAPI</span>
+          <span class="float float--c">Prisma</span>
+        </figure>
+      </div>
+      <a class="scroll-hint" href="#about" aria-label="Прокрутить вниз"><span>scroll</span><i></i></a>
+    </section>
+
+    <div class="band " aria-hidden="true"><div class="band__track"><div class="band__row"><span>Next.js</span><i></i><span>React</span><i></i><span>TypeScript</span><i></i><span>Prisma</span><i></i><span>SQLite</span><i></i><span>Python</span><i></i><span>FastAPI</span><i></i><span>Docker</span><i></i><span>Auth.js</span><i></i><span>Three.js</span><i></i></div><div class="band__row"><span>Next.js</span><i></i><span>React</span><i></i><span>TypeScript</span><i></i><span>Prisma</span><i></i><span>SQLite</span><i></i><span>Python</span><i></i><span>FastAPI</span><i></i><span>Docker</span><i></i><span>Auth.js</span><i></i><span>Three.js</span><i></i></div></div></div>
+
+    <!-- ОБО МНЕ -->
+    <section class="section about" id="about" data-section="about">
+      <div class="wrap about__grid">
+        <aside class="about__side">
+          <div class="about__photo" data-clip>
+            <picture>
+              <source media="(max-width: 767px)" srcset="images/ivan/photo-alt-mobile.jpg" />
+              <img src="images/ivan/photo-alt.jpg" alt="Иван Игнатьев в деловом костюме" width="674" height="900" loading="lazy" />
+            </picture>
+          </div>
+        </aside>
+        <div class="about__main">
+          <p class="kicker"><span>01</span>Обо мне</p>
+          <p class="read" id="read">
+            <strong>Иван Игнатьев</strong> — full‑stack разработчик из Москвы. Делаю веб‑приложения целиком:
+            интерфейс, сервер, авторизация, заказы, админ‑панель и деплой. Агентов использую, чтобы быстрее
+            доводить фичу до продакшена. Соавтор платформы <strong>Show Stolicy</strong> — сервиса продажи билетов
+            на театральные и концертные события. Отвечаю за архитектуру, реализацию и вывод фич в production —
+            от афиши и выбора мест до партнёрской программы и лендингов спектаклей. 11 лет в продажах и управлении
+            научили смотреть на продукт через бизнес: какую задачу решаем, кому это нужно и как измерить результат.
+          </p>
+          <ul class="facts" aria-label="Краткая информация">
+            <li data-reveal><img src="images/flags/ru.svg" alt="" width="28" height="28" /><span><strong>Русский</strong>родной</span></li>
+            <li data-reveal style="--d:70ms"><img src="images/flags/us.svg" alt="" width="28" height="28" /><span><strong>Английский</strong>B2</span></li>
+            <li data-reveal style="--d:140ms"><i class="facts__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i><span><strong>Удалённо</strong>полная, частичная или проектная занятость</span></li>
+            <li data-reveal style="--d:210ms"><i class="facts__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg></i><span><strong>Москва</strong>м. Семёновская</span></li>
+          </ul>
+          <p class="about__note" data-reveal>
+            По выходным хожу в храм. Занимаюсь физкультурой, в основном боксом.
+            На проектах так же: дисциплина, выносливость и фокус на результат.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section skills section--panel">
-      <h2 class="section-title">Навыки</h2>
-      <ul class="skills-grid">
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/javascript.svg?v=20260522a" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/typescript.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">JavaScript · TypeScript</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/react.svg?v=20260522a" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/nextdotjs.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">React · Next.js</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/nodedotjs.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Node.js</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/python.svg?v=20261105a" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/fastapi.svg?v=20261105a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Python · FastAPI</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/mui.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">MUI</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/prisma.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Prisma</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/sqlite.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">SQLite</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/authjs.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Auth.js</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/swagger.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">REST API</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/git.svg?v=20260522a" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/github.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Git · GitHub</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/docker.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Docker</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/githubactions.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">GitHub Actions</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/gnubash.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">SSH</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/cursor.svg?v=20260522a" alt="" width="28" height="28" />
-            <img class="skill-card__icon" src="images/skills/openai.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Cursor · ChatGPT</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/langchain.svg?v=20261105a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">Ollama · LangChain</span>
-        </li>
-        <li class="skill-card">
-          <span class="skill-card__icons" aria-hidden="true">
-            <img class="skill-card__icon" src="images/skills/openapi.svg?v=20260522a" alt="" width="28" height="28" />
-          </span>
-          <span class="skill-card__label">API‑интеграции</span>
-        </li>
-      </ul>
+    <!-- НАВЫКИ -->
+    <section class="section skills" id="skills" data-section="skills">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="kicker"><span>02</span>Навыки</p>
+          <h2>От интерфейса до деплоя</h2>
+        </header>
+        <div class="skill-groups">
+<article class="skill-group" data-reveal style="--d:0ms"><header><span class="skill-group__no">01</span><h3>Интерфейс</h3></header><ul class="chips"><li class="chip" style="--i:1"><img src="images/skills/javascript.svg" alt="" width="20" height="20" loading="lazy" /><span>JavaScript</span></li><li class="chip" style="--i:2"><img src="images/skills/typescript.svg" alt="" width="20" height="20" loading="lazy" /><span>TypeScript</span></li><li class="chip" style="--i:3"><img src="images/skills/react.svg" alt="" width="20" height="20" loading="lazy" /><span>React</span></li><li class="chip" style="--i:4"><img src="images/skills/nextdotjs.svg" alt="" width="20" height="20" loading="lazy" /><span>Next.js</span></li><li class="chip" style="--i:5"><img src="images/skills/mui.svg" alt="" width="20" height="20" loading="lazy" /><span>MUI</span></li><li class="chip" style="--i:6"><i class="chip__dot" aria-hidden="true"></i><span>Three.js</span></li></ul></article>
+<article class="skill-group" data-reveal style="--d:90ms"><header><span class="skill-group__no">02</span><h3>Сервер и данные</h3></header><ul class="chips"><li class="chip" style="--i:7"><img src="images/skills/nodedotjs.svg" alt="" width="20" height="20" loading="lazy" /><span>Node.js</span></li><li class="chip" style="--i:8"><img src="images/skills/python.svg" alt="" width="20" height="20" loading="lazy" /><span>Python</span></li><li class="chip" style="--i:9"><img src="images/skills/fastapi.svg" alt="" width="20" height="20" loading="lazy" /><span>FastAPI</span></li><li class="chip" style="--i:10"><i class="chip__dot" aria-hidden="true"></i><span>Flask</span></li><li class="chip" style="--i:11"><img src="images/skills/swagger.svg" alt="" width="20" height="20" loading="lazy" /><span>REST API</span></li><li class="chip" style="--i:12"><img src="images/skills/authjs.svg" alt="" width="20" height="20" loading="lazy" /><span>Auth.js</span></li><li class="chip" style="--i:13"><img src="images/skills/prisma.svg" alt="" width="20" height="20" loading="lazy" /><span>Prisma</span></li><li class="chip" style="--i:14"><img src="images/skills/sqlite.svg" alt="" width="20" height="20" loading="lazy" /><span>SQLite</span></li></ul></article>
+<article class="skill-group" data-reveal style="--d:180ms"><header><span class="skill-group__no">03</span><h3>Деплой и процесс</h3></header><ul class="chips"><li class="chip" style="--i:15"><img src="images/skills/git.svg" alt="" width="20" height="20" loading="lazy" /><span>Git</span></li><li class="chip" style="--i:16"><img src="images/skills/github.svg" alt="" width="20" height="20" loading="lazy" /><span>GitHub</span></li><li class="chip" style="--i:17"><img src="images/skills/githubactions.svg" alt="" width="20" height="20" loading="lazy" /><span>GitHub Actions</span></li><li class="chip" style="--i:18"><img src="images/skills/docker.svg" alt="" width="20" height="20" loading="lazy" /><span>Docker</span></li><li class="chip" style="--i:19"><img src="images/skills/gnubash.svg" alt="" width="20" height="20" loading="lazy" /><span>SSH</span></li></ul></article>
+<article class="skill-group" data-reveal style="--d:270ms"><header><span class="skill-group__no">04</span><h3>AI и интеграции</h3></header><ul class="chips"><li class="chip" style="--i:20"><img src="images/skills/cursor.svg" alt="" width="20" height="20" loading="lazy" /><span>Cursor</span></li><li class="chip" style="--i:21"><img src="images/skills/openai.svg" alt="" width="20" height="20" loading="lazy" /><span>ChatGPT</span></li><li class="chip" style="--i:22"><i class="chip__dot" aria-hidden="true"></i><span>Ollama</span></li><li class="chip" style="--i:23"><i class="chip__dot" aria-hidden="true"></i><span>CrewAI</span></li><li class="chip" style="--i:24"><img src="images/skills/openapi.svg" alt="" width="20" height="20" loading="lazy" /><span>API‑интеграции</span></li></ul></article>
+        </div>
+      </div>
     </section>
 
-    <section class="hero section section--panel">
-      <div class="hero__content">
-        <p class="hero-label">Full-stack разработчик</p>
-        <h1 class="hero-title">
-          Создаю <em>веб‑приложения</em><br />
-          и автоматизацию
-        </h1>
-        <p class="hero-desc">
-          Next.js, React, TypeScript, Prisma, Python и FastAPI. В продакшене — билетная платформа.
-          Рядом — локальный оркестратор на Ollama и схемы залов.
+    <div class="band band--rev" aria-hidden="true"><div class="band__track"><div class="band__row"><span>Show Stolicy</span><i></i><span>refs.show-stolicy.ru</span><i></i><span>shows.msk.ru</span><i></i><span>mirvana.msk.ru</span><i></i><span>fixrapido.ru</span><i></i></div><div class="band__row"><span>Show Stolicy</span><i></i><span>refs.show-stolicy.ru</span><i></i><span>shows.msk.ru</span><i></i><span>mirvana.msk.ru</span><i></i><span>fixrapido.ru</span><i></i></div></div></div>
+
+    <!-- ОПЫТ: закреплённая сцена -->
+    <section class="pin exp" id="experience" data-section="experience" data-pin="exp" data-steps="4">
+      <div class="pin__stage">
+        <div class="wrap exp__grid">
+          <div class="exp__text">
+            <p class="kicker"><span>03</span>Опыт</p>
+            <h2 class="exp__title">Шоу Столицы</h2>
+            <p class="exp__meta">
+              <span>Январь 2024 — настоящее время</span>
+              <span>Full‑stack разработчик</span>
+              <a href="https://show-stolicy.ru/" target="_blank" rel="noopener noreferrer">show-stolicy.ru ↗</a>
+            </p>
+            <div class="steps" id="steps">
+<div class="step" data-step="0"><span class="step__no">01<em>/04</em></span><h3>Платформа</h3><ul><li>Разработал и запустил fullstack‑платформу для продажи билетов на культурные события в Москве.</li></ul></div>
+<div class="step" data-step="1"><span class="step__no">02<em>/04</em></span><h3>Приложение и заказы</h3><ul><li>Реализовал клиентский интерфейс, серверную логику, Auth.js, API‑маршруты, управление заказами, реферальную систему и админ‑панель.</li></ul></div>
+<div class="step" data-step="2"><span class="step__no">03<em>/04</em></span><h3>Залы и бот</h3><ul><li>Собрал 3D‑схемы 18 московских залов — 23 515 мест: вид с места, база координат и единая ценовая шкала.</li><li>Собрал Telegram‑бота: он держит дату, число гостей и бюджет и ведёт к ссылке на оплату.</li></ul></div>
+<div class="step" data-step="3"><span class="step__no">04<em>/04</em></span><h3>База и деплой</h3><ul><li>Спроектировал базу данных и серверную часть на Prisma и SQLite.</li><li>Настроил деплой и обновление приложения через Docker, GitHub Actions и SSH.</li></ul></div>
+            </div>
+            <div class="ticks" id="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="exp__visual">
+<div class="phone" id="phone"><div class="phone__frame"><i class="phone__notch"></i><div class="phone__screen"><a class="phone__shot" href="images/show-stolicy/1.webp" data-gallery="show-stolicy" data-index="0" data-caption="Афиша и каталог" aria-label="Открыть: Афиша и каталог"><img src="images/show-stolicy/1.webp" alt="Афиша и каталог событий Show Stolicy" width="900" height="1656" decoding="async" /></a><a class="phone__shot" href="images/show-stolicy/2.webp" data-gallery="show-stolicy" data-index="1" data-caption="Страница события" aria-label="Открыть: Страница события"><img src="images/show-stolicy/2.webp" alt="Страница спектакля с покупкой билетов" width="900" height="1578" decoding="async" loading="lazy" /></a><a class="phone__shot" href="images/show-stolicy/3.webp" data-gallery="show-stolicy" data-index="2" data-caption="Выбор мест" aria-label="Открыть: Выбор мест"><img src="images/show-stolicy/3.webp" alt="Выбор мест в зале" width="900" height="1625" decoding="async" loading="lazy" /></a><a class="phone__shot" href="images/show-stolicy/4.webp" data-gallery="show-stolicy" data-index="3" data-caption="Почему Шоу Столицы" aria-label="Открыть: Почему Шоу Столицы"><img src="images/show-stolicy/4.webp" alt="Блок «Почему Шоу Столицы» с персональным ассистентом" width="900" height="1763" decoding="async" loading="lazy" /></a></div></div><div class="phone__caps"><span class="phone__cap" data-cap="0">01 · Афиша и каталог</span><span class="phone__cap" data-cap="1">02 · Страница события</span><span class="phone__cap" data-cap="2">03 · Выбор мест</span><span class="phone__cap" data-cap="3">04 · Почему Шоу Столицы</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРОЕКТЫ: горизонтальная лента -->
+    <section class="pin hs" id="projects" data-section="projects" data-pin="hs">
+      <div class="pin__stage">
+        <header class="hs__head wrap">
+          <div>
+            <p class="kicker"><span>04</span>Проекты</p>
+            <h2>Сайты в работе</h2>
+          </div>
+          <div class="hs__meter" aria-hidden="true"><b id="hs-now">01</b><span>/ 04</span><i><u id="hs-bar"></u></i></div>
+        </header>
+        <div class="hs__viewport">
+          <div class="hs__track" id="hs-track">
+<article class="card" id="p-refs"><div class="card__media"><a class="card__main" href="images/refs-show-stolicy/1.webp" data-gallery="refs" data-index="0" data-caption="Главный экран" aria-label="Открыть: Главный экран"><img src="images/refs-show-stolicy/1.webp" alt="Главный экран — Зарабатывайте на искусстве" width="1400" height="632" decoding="async" /></a><div class="card__thumbs"><a class="thumb" href="images/refs-show-stolicy/2.webp" data-gallery="refs" data-index="1" data-caption="Примеры работы" aria-label="Открыть: Примеры работы"><img src="images/refs-show-stolicy/2.webp" alt="Примеры — лёгкий старт в шоу-бизнесе" width="1400" height="754" loading="lazy" decoding="async" /></a><a class="thumb" href="images/refs-show-stolicy/3.webp" data-gallery="refs" data-index="2" data-caption="Сценарии для партнёров" aria-label="Открыть: Сценарии для партнёров"><img src="images/refs-show-stolicy/3.webp" alt="Мобильные сценарии — выбор, заказ, выплаты" width="1400" height="754" loading="lazy" decoding="async" /></a><a class="thumb" href="images/refs-show-stolicy/4.webp" data-gallery="refs" data-index="3" data-caption="Преимущества" aria-label="Открыть: Преимущества"><img src="images/refs-show-stolicy/4.webp" alt="Преимущества партнёрской программы" width="1400" height="754" loading="lazy" decoding="async" /></a><a class="thumb" href="images/refs-show-stolicy/5.webp" data-gallery="refs" data-index="4" data-caption="FAQ" aria-label="Открыть: FAQ"><img src="images/refs-show-stolicy/5.webp" alt="Частые вопросы" width="1400" height="754" loading="lazy" decoding="async" /></a></div><a href="images/refs-show-stolicy/6.webp" data-gallery="refs" data-index="5" data-caption="Регистрация" hidden></a><button class="card__open" type="button" data-open="refs">Все скриншоты · 6</button></div><div class="card__body"><div class="card__meta"><span class="tag">Партнёрка</span><span class="badge">Private repo</span><span class="card__no">01/04</span></div><h3><a href="https://refs.show-stolicy.ru/" target="_blank" rel="noopener noreferrer">refs.show-stolicy.ru<span class="ext">↗</span></a></h3><p>Партнёрская программа «Шоу Столицы» — регистрация, реферальные ссылки и выплаты 15% с продажи билетов.</p></div></article>
+<article class="card" id="p-shows"><div class="card__media"><a class="card__main" href="images/shows-msk/1.webp" data-gallery="shows" data-index="0" data-caption="Главная страница" aria-label="Открыть: Главная страница"><img src="images/shows-msk/1.webp" alt="Главная — спектакль Кыся с таймером" width="1400" height="754" loading="lazy" decoding="async" /></a><div class="card__thumbs"><a class="thumb" href="images/shows-msk/2.webp" data-gallery="shows" data-index="1" data-caption="Площадка и выбор мест" aria-label="Открыть: Площадка и выбор мест"><img src="images/shows-msk/2.webp" alt="Площадка и схема зала" width="1400" height="754" loading="lazy" decoding="async" /></a><a class="thumb" href="images/shows-msk/3.webp" data-gallery="shows" data-index="2" data-caption="Карта и галерея" aria-label="Открыть: Карта и галерея"><img src="images/shows-msk/3.webp" alt="Карта театра и галерея" width="1400" height="754" loading="lazy" decoding="async" /></a><a class="thumb" href="images/shows-msk/4.webp" data-gallery="shows" data-index="3" data-caption="Дмитрий Нагиев" aria-label="Открыть: Дмитрий Нагиев"><img src="images/shows-msk/4.webp" alt="Об артисте — Дмитрий Нагиев" width="1400" height="754" loading="lazy" decoding="async" /></a><a class="thumb" href="images/shows-msk/5.webp" data-gallery="shows" data-index="4" data-caption="Игорь Лифанов" aria-label="Открыть: Игорь Лифанов"><img src="images/shows-msk/5.webp" alt="Об артисте — Игорь Лифанов" width="1400" height="754" loading="lazy" decoding="async" /></a></div><a href="images/shows-msk/6.webp" data-gallery="shows" data-index="5" data-caption="Программа и FAQ" hidden></a><a href="images/shows-msk/7.webp" data-gallery="shows" data-index="6" data-caption="Рекомендуемые события" hidden></a><button class="card__open" type="button" data-open="shows">Все скриншоты · 7</button></div><div class="card__body"><div class="card__meta"><span class="tag">Лендинг</span><span class="badge">Private repo</span><span class="card__no">02/04</span></div><h3><a href="https://shows.msk.ru/" target="_blank" rel="noopener noreferrer">shows.msk.ru<span class="ext">↗</span></a></h3><p>Лендинг спектакля «Кыся» — афиша, артисты, программа, FAQ, карта площадки и бронирование мест.</p></div></article>
+<article class="card" id="p-mirvana"><div class="card__media"><a class="card__main" href="images/mirvana/01-hero.webp" data-gallery="mirvana" data-index="0" data-caption="Главная страница" aria-label="Открыть: Главная страница"><img src="images/mirvana/01-hero.webp" alt="Главная — реставрация ванн без демонтажа" width="1400" height="751" loading="lazy" decoding="async" /></a><div class="card__thumbs"><a class="thumb" href="images/mirvana/02-services.webp" data-gallery="mirvana" data-index="1" data-caption="Услуги и преимущества" aria-label="Открыть: Услуги и преимущества"><img src="images/mirvana/02-services.webp" alt="Преимущества и популярные услуги" width="1400" height="751" loading="lazy" decoding="async" /></a><a class="thumb" href="images/mirvana/03-works.webp" data-gallery="mirvana" data-index="2" data-caption="Примеры работ" aria-label="Открыть: Примеры работ"><img src="images/mirvana/03-works.webp" alt="Примеры работ до и после реставрации" width="1400" height="751" loading="lazy" decoding="async" /></a><a class="thumb" href="images/mirvana/04-pricing.webp" data-gallery="mirvana" data-index="3" data-caption="Прайс" aria-label="Открыть: Прайс"><img src="images/mirvana/04-pricing.webp" alt="Ориентиры по прайсу на услуги" width="1400" height="751" loading="lazy" decoding="async" /></a><a class="thumb" href="images/mirvana/05-lead-form.webp" data-gallery="mirvana" data-index="4" data-caption="Заявка с сайта" aria-label="Открыть: Заявка с сайта"><img src="images/mirvana/05-lead-form.webp" alt="Форма заявки на реставрацию" width="1400" height="751" loading="lazy" decoding="async" /></a></div><a href="images/mirvana/06-admin-login.webp" data-gallery="mirvana" data-index="5" data-caption="Вход в админку" hidden></a><a href="images/mirvana/07-admin-overview.webp" data-gallery="mirvana" data-index="6" data-caption="Обзор админки" hidden></a><a href="images/mirvana/08-admin-orders.webp" data-gallery="mirvana" data-index="7" data-caption="Заказы" hidden></a><a href="images/mirvana/09-admin-masters.webp" data-gallery="mirvana" data-index="8" data-caption="Мастера" hidden></a><a href="images/mirvana/10-admin-master-new.webp" data-gallery="mirvana" data-index="9" data-caption="Новый мастер" hidden></a><a href="images/mirvana/11-admin-services.webp" data-gallery="mirvana" data-index="10" data-caption="Услуги в админке" hidden></a><a href="images/mirvana/12-admin-works.webp" data-gallery="mirvana" data-index="11" data-caption="Работы в админке" hidden></a><a href="images/mirvana/13-admin-settings.webp" data-gallery="mirvana" data-index="12" data-caption="Настройки сайта" hidden></a><button class="card__open" type="button" data-open="mirvana">Все скриншоты · 13</button></div><div class="card__body"><div class="card__meta"><span class="tag">Сайт + админка</span><span class="badge">Private repo</span><span class="card__no">03/04</span></div><h3>mirvana.msk.ru</h3><p>Сайт реставрации ванн с заявками с лендинга, прайсом и админ‑панелью: заказы, мастера, услуги, портфолио работ и настройки контента.</p></div></article>
+<article class="card" id="p-fixrapido"><div class="card__media"><a class="card__main" href="images/fixrapido/1.webp" data-gallery="fixrapido" data-index="0" data-caption="Создание заявки" aria-label="Открыть: Создание заявки"><img src="images/fixrapido/1.webp" alt="Создание заявки — форма для клиента" width="1400" height="751" loading="lazy" decoding="async" /></a><div class="card__thumbs"><a class="thumb" href="images/fixrapido/2.webp" data-gallery="fixrapido" data-index="1" data-caption="Вход для сотрудников" aria-label="Открыть: Вход для сотрудников"><img src="images/fixrapido/2.webp" alt="Вход для сотрудников" width="1400" height="751" loading="lazy" decoding="async" /></a><a class="thumb" href="images/fixrapido/3.webp" data-gallery="fixrapido" data-index="2" data-caption="Панель мастера" aria-label="Открыть: Панель мастера"><img src="images/fixrapido/3.webp" alt="Панель мастера — список заявок" width="1400" height="751" loading="lazy" decoding="async" /></a><a class="thumb" href="images/fixrapido/4.webp" data-gallery="fixrapido" data-index="3" data-caption="Панель диспетчера" aria-label="Открыть: Панель диспетчера"><img src="images/fixrapido/4.webp" alt="Панель диспетчера — управление заявками" width="1400" height="751" loading="lazy" decoding="async" /></a><a class="thumb" href="images/fixrapido/5.webp" data-gallery="fixrapido" data-index="4" data-caption="Назначение мастера" aria-label="Открыть: Назначение мастера"><img src="images/fixrapido/5.webp" alt="Назначение мастера на заявку" width="1400" height="751" loading="lazy" decoding="async" /></a></div><button class="card__open" type="button" data-open="fixrapido">Все скриншоты · 5</button></div><div class="card__body"><div class="card__meta"><span class="tag">Заявки</span><span class="badge">Public repo</span><span class="card__no">04/04</span></div><h3>fixrapido.ru</h3><p>Веб‑приложение для приёма и обработки заявок в ремонтную службу.</p><ul class="card__points"><li>Роли: администратор, диспетчер, мастер. Клиент создаёт заявку без входа.</li><li>Диспетчер назначает мастера и отменяет заявки, мастер берёт их в работу и закрывает.</li><li>Защита от гонки: заявку берёт один мастер, второй запрос получает 409.</li></ul><p class="card__tech">Python · Flask</p><a class="link-arrow" href="https://github.com/JeysonShell/fixrapido.ru" target="_blank" rel="noopener noreferrer">Репозиторий <svg class="ico-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+          </div>
+        </div>
+        <p class="hs__hint" aria-hidden="true">листайте вниз — лента едет вбок</p>
+      </div>
+    </section>
+
+    <!-- ЭКСПЕРИМЕНТЫ -->
+    <section class="section lab" id="lab" data-section="lab">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="kicker"><span>05</span>Эксперименты</p>
+          <h2>Инструменты и автоматизация</h2>
+        </header>
+        <div class="lab-grid">
+<article class="lab-card" data-reveal style="--d:0ms"><div class="lab-card__top"><span class="tag">Local</span><span class="badge">Private repo</span></div><h3>Мультиагентный оркестратор</h3><p>Локальный контур на FastAPI и Ollama. В рантайме одна модель — Qwen 2.5 7B. Внешние LLM не подключены. Пять режимов: research, programming, design, analytics, strategy.</p><ul class="card__points"><li>Оркестратор делит задачу между агентами, проверяет результат и пишет отчёт.</li><li>Код исполняется в песочнице. Опасный запрос останавливается до явного подтверждения.</li><li>Есть поиск, история запусков и метрики. Unit‑тесты ходят в Ollama через mock.</li><li>Сборка рассчитана на ноутбук, в том числе на 8 ГБ памяти. Это не высоконагруженный сервис.</li></ul></article>
+<article class="lab-card" data-reveal style="--d:90ms"><div class="lab-card__top"><span class="tag">3D</span><span class="badge">Private repo</span></div><h3>Схемы залов Москвы</h3><p>Интерактивные 3D‑схемы 18 площадок для «Шоу Столицы»: 23 515 мест, вид с кресла и выгрузка базы координат.</p><ul class="card__points"><li>Общий модуль на Three.js: палитра цен, секции, меню видов и посадка на место.</li><li>По каждому залу — JSON и CSV: ряд, место, координаты, угол на сцену и расстояние до неё.</li></ul></article>
+<article class="lab-card" data-reveal style="--d:0ms"><div class="lab-card__top"><span class="tag">Bot</span><span class="badge">Private repo</span></div><h3>Telegram‑консьерж</h3><p>Бот для подбора билетов: 2–3 события, места и ссылка на оплату. Репозиторий закрытый, публичной витрины бота нет.</p><ul class="card__points"><li>Помнит контекст диалога и не задаёт один и тот же вопрос дважды.</li><li>Если даты нет, предлагает соседние дни и соседние зоны, не уходя в посторонние темы.</li></ul></article>
+<article class="lab-card" data-reveal style="--d:90ms"><div class="lab-card__top"><span class="tag">CrewAI</span><span class="badge">Public repo</span></div><h3>Маркетинг‑штаб</h3><p>Оркестратор на CrewAI для продвижения мероприятий: команда агентов — дизайн, SEO, SMM и продажи.</p><ul class="card__points"><li>Backend на Python: CrewAI и FastAPI REST API.</li><li>Панель управления на React, Vite, TypeScript и Tailwind.</li></ul><a class="link-arrow" href="https://github.com/JeysonShell/Orchestrator" target="_blank" rel="noopener noreferrer">Репозиторий <svg class="ico-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section contact" id="contact" data-section="contact">
+      <div class="wrap">
+        <p class="kicker" data-reveal><span>06</span>Контакты</p>
+        <h2 class="contact__title" data-reveal>Обсудим<br /><em>задачу?</em></h2>
+        <p class="contact__lead" data-reveal>
+          Ищу удалённую работу и проекты: полная, частичная или проектная занятость.
+          Открыт к редким командировкам.
         </p>
-        <ul class="hero-stats" aria-label="Ключевые факты">
-          <li><strong>2+ года</strong><span>коммерческого опыта</span></li>
-          <li><strong>Продакшен</strong><span>ticketing‑платформа</span></li>
-          <li><strong>11 лет</strong><span>продажи и управление</span></li>
+        <ul class="contact__list">
+          <li data-reveal><a href="https://t.me/burn_life1" target="_blank" rel="noopener noreferrer"><span class="k">Telegram</span><span class="v">@burn_life1</span><svg class="ico-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          <li data-reveal style="--d:70ms"><a href="https://wa.me/79299242446" target="_blank" rel="noopener noreferrer"><span class="k">WhatsApp</span><span class="v">+7 929 924‑24‑46</span><svg class="ico-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          <li data-reveal style="--d:140ms"><a href="mailto:94.moscowshow@mail.ru"><span class="k">Email</span><span class="v">94.moscowshow@mail.ru</span><svg class="ico-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          <li data-reveal style="--d:210ms"><a href="https://github.com/JeysonShell" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v">JeysonShell</span><svg class="ico-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
         </ul>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
-          <a class="btn btn-ghost" href="#summary">Резюме</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="summary" class="section resume-summary section--panel">
-      <div class="section-heading">
-        <p class="section-kicker">Резюме</p>
-        <h2 class="section-title">Что важно знать</h2>
-      </div>
-      <div class="resume-cards">
-        <article class="resume-card">
-          <span>Позиция</span>
-          <strong>Full-stack разработчик</strong>
-          <p>Веб‑приложения от интерфейса до деплоя. Удалённо, проектно или частичная занятость.</p>
-        </article>
-        <article class="resume-card">
-          <span>Продукт</span>
-          <strong>Show Stolicy</strong>
-          <p>Платформа продажи билетов на театральные и концертные события.</p>
-        </article>
-        <article class="resume-card">
-          <span>Роль</span>
-          <strong>От идеи до продакшена</strong>
-          <p>Архитектура, интерфейс, сервер, Auth.js, API, заказы, реферальная система и админ‑панель. База — Prisma и SQLite.</p>
-        </article>
-        <article class="resume-card">
-          <span>Формат</span>
-          <strong>Удалённо и проектно</strong>
-          <p>Готов к полной, частичной и проектной занятости, открыт к редким командировкам.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" class="section experience section--panel">
-      <div class="section-heading">
-        <p class="section-kicker">Опыт</p>
-        <h2 class="section-title">Шоу Столицы</h2>
-      </div>
-      <div class="experience-card">
-        <div class="experience-meta">
-          <span>Январь 2024 — настоящее время</span>
-          <strong>Full-stack разработчик</strong>
-          <a href="https://show-stolicy.ru/" target="_blank" rel="noopener noreferrer">show-stolicy.ru</a>
-        </div>
-        <ul class="experience-list">
-          <li>Разработал и запустил fullstack‑платформу для продажи билетов на культурные события в Москве.</li>
-          <li>Реализовал клиентский интерфейс, серверную логику, Auth.js, API‑маршруты, управление заказами, реферальную систему и админ‑панель.</li>
-          <li>Спроектировал базу данных и серверную часть на Prisma и SQLite.</li>
-          <li>Настроил деплой и обновление приложения через Docker, GitHub Actions и SSH.</li>
-          <li>Собрал 3D‑схемы 18 московских залов — 23 515 мест: вид с места, база координат и единая ценовая шкала.</li>
-          <li>Собрал Telegram‑бота: он держит дату, число гостей и бюджет и ведёт к ссылке на оплату.</li>
-        </ul>
-        <p class="project-gallery-hint experience-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
-        <div class="project-gallery experience-gallery" aria-label="Скриншоты платформы Show Stolicy">
-          <figure class="project-gallery__item">
-            <img src="images/show-stolicy/1.jpg" alt="Афиша и каталог событий Show Stolicy" loading="lazy" width="1290" height="2374" />
-            <figcaption>1. Афиша и каталог</figcaption>
-          </figure>
-          <figure class="project-gallery__item">
-            <img src="images/show-stolicy/2.jpg" alt="Страница спектакля с покупкой билетов" loading="lazy" width="1290" height="2262" />
-            <figcaption>2. Страница события</figcaption>
-          </figure>
-          <figure class="project-gallery__item">
-            <img src="images/show-stolicy/3.jpg" alt="Выбор мест в зале" loading="lazy" width="1290" height="2329" />
-            <figcaption>3. Выбор мест</figcaption>
-          </figure>
-          <figure class="project-gallery__item">
-            <img src="images/show-stolicy/4.jpg?v=20260522a" alt="Блок «Почему Шоу Столицы» с персональным ассистентом" loading="lazy" width="1290" height="2527" />
-            <figcaption>4. Почему Шоу Столицы</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section projects section--panel">
-      <h2 class="section-title">Проекты</h2>
-      <div class="projects-grid">
-        <article class="project-card project-card--featured">
-          <span class="project-tag">Local</span>
-          <h3>Мультиагентный оркестратор</h3>
-          <p>Локальный контур на FastAPI и Ollama. В рантайме одна модель — Qwen 2.5 7B. Внешние LLM не подключены. Пять режимов: research, programming, design, analytics, strategy.</p>
-          <ul class="experience-list project-points">
-            <li>Оркестратор делит задачу между агентами, проверяет результат и пишет отчёт.</li>
-            <li>Код исполняется в песочнице. Опасный запрос останавливается до явного подтверждения.</li>
-            <li>Есть поиск, история запусков и метрики. Unit-тесты ходят в Ollama через mock.</li>
-            <li>Сборка рассчитана на ноутбук, в том числе на 8 ГБ памяти. Это не высоконагруженный сервис.</li>
-          </ul>
-          <span class="project-private">Private repo</span>
-        </article>
-        <article class="project-card project-card--featured">
-          <span class="project-tag">3D</span>
-          <h3>Схемы залов Москвы</h3>
-          <p>Интерактивные 3D‑схемы 18 площадок для «Шоу Столицы»: 23 515 мест, вид с кресла и выгрузка базы координат.</p>
-          <ul class="experience-list project-points">
-            <li>Общий модуль на Three.js: палитра цен, секции, меню видов и посадка на место.</li>
-            <li>По каждому залу — JSON и CSV: ряд, место, координаты, угол на сцену и расстояние до неё.</li>
-          </ul>
-          <span class="project-private">Private repo</span>
-        </article>
-        <article class="project-card project-card--featured">
-          <span class="project-tag">Bot</span>
-          <h3>Telegram‑консьерж</h3>
-          <p>Бот для подбора билетов: 2–3 события, места и ссылка на оплату. Репозиторий закрытый, публичной витрины бота нет.</p>
-          <ul class="experience-list project-points">
-            <li>Помнит контекст диалога и не задаёт один и тот же вопрос дважды.</li>
-            <li>Если даты нет, предлагает соседние дни и соседние зоны, не уходя в посторонние темы.</li>
-          </ul>
-          <span class="project-private">Private repo</span>
-        </article>
-        <article class="project-card project-card--featured">
-          <span class="project-tag">Public</span>
-          <h3>fixrapido.ru</h3>
-          <p>Веб‑приложение для приёма и обработки заявок в ремонтную службу.</p>
-          <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
-          <div class="project-gallery" aria-label="Скриншоты fixrapido.ru">
-            <figure class="project-gallery__item">
-              <img src="images/fixrapido/1.png" alt="Создание заявки — форма для клиента" loading="lazy" width="1400" height="751" />
-              <figcaption>1. Создание заявки</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/fixrapido/2.png" alt="Вход для сотрудников" loading="lazy" width="1400" height="751" />
-              <figcaption>2. Вход для сотрудников</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/fixrapido/3.png" alt="Панель мастера — список заявок" loading="lazy" width="1400" height="751" />
-              <figcaption>3. Панель мастера</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/fixrapido/4.png" alt="Панель диспетчера — управление заявками" loading="lazy" width="1400" height="751" />
-              <figcaption>4. Панель диспетчера</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/fixrapido/5.png" alt="Назначение мастера на заявку" loading="lazy" width="1400" height="751" />
-              <figcaption>5. Назначение мастера</figcaption>
-            </figure>
-          </div>
-          <a href="https://github.com/JeysonShell/fixrapido.ru" target="_blank" rel="noopener noreferrer">Репозиторий →</a>
-        </article>
-        <article class="project-card project-card--featured">
-          <span class="project-tag">WEB</span>
-          <h3><a class="project-link" href="https://refs.show-stolicy.ru/" target="_blank" rel="noopener noreferrer">refs.show-stolicy.ru</a></h3>
-          <p>Партнёрская программа «Шоу Столицы» — регистрация, реферальные ссылки и выплаты 15% с продажи билетов.</p>
-          <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
-          <div class="project-gallery" aria-label="Скриншоты проекта">
-            <figure class="project-gallery__item">
-              <img src="images/refs-show-stolicy/1.png" alt="Главный экран — Зарабатывайте на искусстве" loading="lazy" width="1400" height="788" />
-              <figcaption>1. Главный экран</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/refs-show-stolicy/2.png" alt="Примеры — лёгкий старт в шоу-бизнесе" loading="lazy" width="1400" height="788" />
-              <figcaption>2. Примеры работы</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/refs-show-stolicy/3.png" alt="Мобильные сценарии — выбор, заказ, выплаты" loading="lazy" width="1400" height="788" />
-              <figcaption>3. Сценарии для партнёров</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/refs-show-stolicy/4.png" alt="Преимущества партнёрской программы" loading="lazy" width="1400" height="788" />
-              <figcaption>4. Преимущества</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/refs-show-stolicy/5.png" alt="Частые вопросы" loading="lazy" width="1400" height="788" />
-              <figcaption>5. FAQ</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/refs-show-stolicy/6.png" alt="Форма регистрации партнёра" loading="lazy" width="1400" height="788" />
-              <figcaption>6. Регистрация</figcaption>
-            </figure>
-          </div>
-          <span class="project-private">Private repo</span>
-        </article>
-        <article class="project-card project-card--featured">
-          <span class="project-tag">WEB</span>
-          <h3><a class="project-link" href="https://shows.msk.ru/" target="_blank" rel="noopener noreferrer">shows.msk.ru</a></h3>
-          <p>Лендинг спектакля «Кыся» — афиша, артисты, программа, FAQ, карта площадки и бронирование мест.</p>
-          <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
-          <div class="project-gallery" aria-label="Скриншоты shows.msk.ru">
-            <figure class="project-gallery__item">
-              <img src="images/shows-msk/1.png" alt="Главная — спектакль Кыся с таймером" loading="lazy" width="1400" height="788" />
-              <figcaption>1. Главная страница</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/shows-msk/2.png" alt="Площадка и схема зала" loading="lazy" width="1400" height="788" />
-              <figcaption>2. Площадка и выбор мест</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/shows-msk/3.png" alt="Карта театра и галерея" loading="lazy" width="1400" height="788" />
-              <figcaption>3. Карта и галерея</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/shows-msk/4.png" alt="Об артисте — Дмитрий Нагиев" loading="lazy" width="1400" height="788" />
-              <figcaption>4. Дмитрий Нагиев</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/shows-msk/5.png" alt="Об артисте — Игорь Лифанов" loading="lazy" width="1400" height="788" />
-              <figcaption>5. Игорь Лифанов</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/shows-msk/6.png" alt="Программа и вопросы-ответы" loading="lazy" width="1400" height="788" />
-              <figcaption>6. Программа и FAQ</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/shows-msk/7.png" alt="Рекомендуемые события" loading="lazy" width="1400" height="788" />
-              <figcaption>7. Рекомендуемые события</figcaption>
-            </figure>
-          </div>
-          <span class="project-private">Private repo</span>
-        </article>
-        <article class="project-card project-card--featured">
-          <span class="project-tag">E‑commerce</span>
-          <h3>mirvana.msk.ru</h3>
-          <p>Сайт реставрации ванн с заявками с лендинга, прайсом и админ‑панелью: заказы, мастера, услуги, портфолио работ и настройки контента.</p>
-          <p class="project-gallery-hint">Листайте влево, чтобы посмотреть все скриншоты</p>
-          <div class="project-gallery" aria-label="Скриншоты mirvana.msk.ru">
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/01-hero.jpg?v=20260522c" alt="Главная — реставрация ванн без демонтажа" loading="lazy" width="1400" height="751" />
-              <figcaption>1. Главная страница</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/02-services.jpg?v=20260522c" alt="Преимущества и популярные услуги" loading="lazy" width="1400" height="751" />
-              <figcaption>2. Услуги и преимущества</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/03-works.jpg?v=20260522c" alt="Примеры работ до и после реставрации" loading="lazy" width="1400" height="751" />
-              <figcaption>3. Примеры работ</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/04-pricing.jpg?v=20260522c" alt="Ориентиры по прайсу на услуги" loading="lazy" width="1400" height="751" />
-              <figcaption>4. Прайс</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/05-lead-form.jpg?v=20260522c" alt="Форма заявки на реставрацию" loading="lazy" width="1400" height="751" />
-              <figcaption>5. Заявка с сайта</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/06-admin-login.png?v=20260522e" alt="Вход в админку Мирвана" loading="lazy" width="1400" height="751" />
-              <figcaption>6. Вход в админку</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/07-admin-overview.png?v=20260522c" alt="Обзор админ-панели со статистикой" loading="lazy" width="1400" height="751" />
-              <figcaption>7. Обзор админки</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/08-admin-orders.png?v=20260522c" alt="Заказы и назначение мастера" loading="lazy" width="1400" height="751" />
-              <figcaption>8. Заказы</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/09-admin-masters.png?v=20260522c" alt="Справочник мастеров" loading="lazy" width="1400" height="751" />
-              <figcaption>9. Мастера</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/10-admin-master-new.png?v=20260522c" alt="Форма добавления мастера" loading="lazy" width="1400" height="751" />
-              <figcaption>10. Новый мастер</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/11-admin-services.png?v=20260522c" alt="CRUD услуг в админке" loading="lazy" width="1400" height="751" />
-              <figcaption>11. Услуги в админке</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/12-admin-works.png?v=20260522c" alt="CRUD примеров работ" loading="lazy" width="1400" height="751" />
-              <figcaption>12. Работы в админке</figcaption>
-            </figure>
-            <figure class="project-gallery__item">
-              <img src="images/mirvana/13-admin-settings.png?v=20260522c" alt="Настройки hero, контактов и ссылок" loading="lazy" width="1400" height="751" />
-              <figcaption>13. Настройки сайта</figcaption>
-            </figure>
-          </div>
-          <span class="project-private">Private repo</span>
-        </article>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Ivan Ignatiev</p>
+    <div class="wrap footer__row">
+      <p>© <span id="year">2026</span> Ivan Ignatiev</p>
+      <a href="#top">Наверх ↑</a>
+    </div>
   </footer>
 
-  <div class="contact-fab" id="contact-fab">
-    <div class="contact-fab__menu" id="contact-fab-menu" hidden>
-      <a class="contact-fab__action" href="https://t.me/burn_life1" target="_blank" rel="noopener noreferrer" aria-label="Telegram: @burn_life1">
-        <span class="contact-fab__label">Telegram</span>
-        <span class="contact-fab__btn contact-fab__btn--telegram" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-        </span>
-      </a>
-      <a class="contact-fab__action" href="https://wa.me/79299242446" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: +7 929 924-24-46">
-        <span class="contact-fab__label">WhatsApp</span>
-        <span class="contact-fab__btn contact-fab__btn--whatsapp" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-        </span>
-      </a>
-      <a class="contact-fab__action" href="mailto:94.moscowshow@mail.ru" aria-label="Email: 94.moscowshow@mail.ru">
-        <span class="contact-fab__label">Email</span>
-        <span class="contact-fab__btn contact-fab__btn--email" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </span>
-      </a>
+  <!-- ЛАЙТБОКС -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр скриншотов" hidden>
+    <div class="lb__bar">
+      <span class="lb__count" id="lb-count"></span>
+      <button class="lb__btn" id="lb-close" type="button" aria-label="Закрыть">✕</button>
     </div>
-    <button
-      class="contact-fab__toggle"
-      id="contact-fab-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="contact-fab-menu"
-      aria-label="Открыть контакты"
-    >
-      <svg class="contact-fab__icon contact-fab__icon--open" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
-        <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-      <svg class="contact-fab__icon contact-fab__icon--close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </button>
+    <button class="lb__nav lb__nav--prev" id="lb-prev" type="button" aria-label="Предыдущий">‹</button>
+    <figure class="lb__fig"><img id="lb-img" alt="" /><figcaption id="lb-cap"></figcaption></figure>
+    <button class="lb__nav lb__nav--next" id="lb-next" type="button" aria-label="Следующий">›</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js"></script>
-  <script src="script.js?v=20261109c"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,22 +1,25 @@
-# Portfolio — Ivan Ignatiev
+# Ivan Ignatiev — portfolio
 
-Личное портфолио, опубликованное через [GitHub Pages](https://pages.github.com/).
+Статический сайт-портфолио на чистых HTML, CSS и JavaScript, без сборки и зависимостей.
+Публикуется через GitHub Pages: https://jeysonshell.github.io
+
+## Структура
+
+- `index.html` — разметка и тексты
+- `styles.css` — оформление, адаптив, режим `prefers-reduced-motion`
+- `script.js` — скролл-анимации, закреплённые сцены, горизонтальная лента проектов, фон-сеть, лайтбокс
+- `images/` — фото, скриншоты проектов (WebP), иконки навыков
 
 ## Локальный просмотр
 
 ```bash
-cd portfolio
 python3 -m http.server 8080
 ```
 
-Откройте http://localhost:8080
+Затем открыть http://localhost:8080.
 
-## Редактирование
+## Как править
 
-- `index.html` — текст, проекты, контакты
-- `styles.css` — оформление
-- `script.js` — меню и мелкая логика
-
-## Публикация
-
-Репозиторий `JeysonShell.github.io` → сайт: **https://jeysonshell.github.io**
+- Тексты и ссылки — `index.html`.
+- Скриншоты проектов лежат в `images/<проект>/`; каждый снимок — ссылка с `data-gallery` и `data-index`, лайтбокс подхватывает их сам.
+- Шаги сцены «Шоу Столицы» — блоки `.step` в секции `#experience`; их число задаёт `data-steps`.
