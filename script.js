@@ -122,6 +122,13 @@
     hs.style.height = Math.round(window.innerHeight + hsDist) + "px";
   };
 
+  const stepsBox = $("#steps");
+  const layoutSteps = () => {
+    stepsBox.style.minHeight = "";
+    const h = Math.max(...stepEls.map((s) => s.offsetHeight));
+    stepsBox.style.minHeight = h + "px";
+  };
+
   const pinProgress = (el) => {
     const total = el.offsetHeight - window.innerHeight;
     return total > 0 ? clamp(-el.getBoundingClientRect().top / total) : 0;
@@ -242,6 +249,7 @@
     if (window.innerWidth !== lastW) {
       lastW = window.innerWidth;
       layoutHS();
+      layoutSteps();
       initCanvas();
     }
     request();
@@ -461,12 +469,14 @@
 
   /* ---------- старт ---------- */
   layoutHS();
+  layoutSteps();
   hsCur = 0;
   request();
   window.addEventListener("load", () => {
     layoutHS();
+    layoutSteps();
     request();
     if (location.hash && $(location.hash)) $(location.hash).scrollIntoView();
   });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { layoutHS(); request(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { layoutHS(); layoutSteps(); request(); });
 })();
